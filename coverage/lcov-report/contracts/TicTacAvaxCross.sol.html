@@ -1,0 +1,884 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/TicTacAvaxCross.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">contracts/</a> TicTacAvaxCross.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/57</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/46</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/78</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.24;
+&nbsp;
+import {AxelarExecutable} from '@axelar-network/axelar-gmp-sdk-solidity/contracts/executable/AxelarExecutable.sol';
+import {IAxelarGateway} from '@axelar-network/axelar-gmp-sdk-solidity/contracts/interfaces/IAxelarGateway.sol';
+import {IAxelarGasService} from '@axelar-network/axelar-gmp-sdk-solidity/contracts/interfaces/IAxelarGasService.sol';
+&nbsp;
+contract TicTacAvaxCross is AxelarExecutable {
+	IAxelarGasService public immutable gasService;
+	string public message;
+&nbsp;
+	address[2] public players;
+	uint public currentPlayer;
+	uint8[3][3] public board;
+	uint public roundCount;
+	uint public gameCount;
+	bool public gameOver;
+	address public winner;
+	uint public lastMoveTimestamp;
+	address public lastRoundWinner;
+&nbsp;
+	event GameStarted(address player1, address player2);
+	event MoveMade(address player, uint8 row, uint8 col);
+	event GameWon(address winner);
+	event GameDraw();
+	event GameReset();
+&nbsp;
+<span class="fstat-no" title="function not covered" >	modifier onlyPlayers() {</span>
+<span class="cstat-no" title="statement not covered" >		require(</span>
+			msg.sender == players[0] || msg.sender == players[1],
+			'Not a player'
+		);
+		_;
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	modifier validMove(uint8 row, uint8 col) {</span>
+<span class="cstat-no" title="statement not covered" >		require(!gameOver, 'Game over')</span>;
+<span class="cstat-no" title="statement not covered" >		require(row &lt; 3 &amp;&amp; col &lt; 3, 'Invalid move')</span>;
+<span class="cstat-no" title="statement not covered" >		require(board[row][col] == 0, 'Cell already taken')</span>;
+		_;
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	constructor(</span>
+		address _gateway,
+		address _gasService
+	) AxelarExecutable(_gateway) {
+		gasService = IAxelarGasService(_gasService);
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	function startGame(</span>
+		string calldata _destinationChain,
+		string calldata _destinationAddress,
+		address playerOne,
+		address playerTwo
+	) public payable {
+<span class="cstat-no" title="statement not covered" >		require(</span>
+			players[0] == address(0) &amp;&amp; players[1] == address(0),
+			'Game already started'
+		);
+<span class="cstat-no" title="statement not covered" >		require(</span>
+			playerOne != address(0) &amp;&amp; playerTwo != address(0),
+			'Invalid player'
+		);
+<span class="cstat-no" title="statement not covered" >		require(playerOne != playerTwo, 'Players must be different')</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		(string memory flag, address _playerOne, address _playerTwo) = _startGame(</span>
+			playerOne,
+			playerTwo
+		);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		bytes memory payload = abi.encode(flag, _playerOne, _playerTwo);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		gasService.payNativeGasForContractCall{value: msg.value}(</span>
+			address(this),
+			_destinationChain,
+			_destinationAddress,
+			payload,
+			msg.sender
+		);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		gateway.callContract(_destinationChain, _destinationAddress, payload)</span>;
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	function makeMove(</span>
+		string calldata _destinationChain,
+		string calldata _destinationAddress,
+		uint8 _row,
+		uint8 _col
+	) public payable onlyPlayers validMove(_row, _col) {
+<span class="cstat-no" title="statement not covered" >		require(msg.sender == players[currentPlayer], 'Not your turn')</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		string memory flag = _makeMove(_row, _col);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		bytes memory payload = abi.encode(flag, _row, _col);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		gasService.payNativeGasForContractCall{value: msg.value}(</span>
+			address(this),
+			_destinationChain,
+			_destinationAddress,
+			payload,
+			msg.sender
+		);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		gateway.callContract(_destinationChain, _destinationAddress, payload)</span>;
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	function resetGame(</span>
+		string calldata _destinationChain,
+		string calldata _destinationAddress
+	) public payable {
+<span class="cstat-no" title="statement not covered" >		require(</span>
+			gameOver || block.timestamp &gt; lastMoveTimestamp + 86400,
+			'Game is not over yet or 24 hours have not passed'
+		);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		string memory flag = _resetGame();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		bytes memory payload = abi.encode(flag);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		gasService.payNativeGasForContractCall{value: msg.value}(</span>
+			address(this),
+			_destinationChain,
+			_destinationAddress,
+			payload,
+			msg.sender
+		);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		gateway.callContract(_destinationChain, _destinationAddress, payload)</span>;
+	}
+&nbsp;
+	/// View functions
+&nbsp;
+<span class="fstat-no" title="function not covered" >	function getBoard() public view returns (uint8[3][3] memory) {</span>
+<span class="cstat-no" title="statement not covered" >		return board;</span>
+	}
+&nbsp;
+	/// internal functions
+&nbsp;
+<span class="fstat-no" title="function not covered" >	function checkWin() internal view returns (bool) {</span>
+<span class="cstat-no" title="statement not covered" >		for (uint8 i = 0; i &lt; 3; i++) {</span>
+<span class="cstat-no" title="statement not covered" >			if (</span>
+				(board[i][0] == board[i][1] &amp;&amp;
+					board[i][1] == board[i][2] &amp;&amp;
+					board[i][0] != 0) ||
+				(board[0][i] == board[1][i] &amp;&amp;
+					board[1][i] == board[2][i] &amp;&amp;
+					board[0][i] != 0)
+			) {
+<span class="cstat-no" title="statement not covered" >				return true;</span>
+			}
+		}
+<span class="cstat-no" title="statement not covered" >		if (</span>
+			(board[0][0] == board[1][1] &amp;&amp;
+				board[1][1] == board[2][2] &amp;&amp;
+				board[0][0] != 0) ||
+			(board[0][2] == board[1][1] &amp;&amp;
+				board[1][1] == board[2][0] &amp;&amp;
+				board[0][2] != 0)
+		) {
+<span class="cstat-no" title="statement not covered" >			return true;</span>
+		}
+<span class="cstat-no" title="statement not covered" >		return false;</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	function checkDraw() internal view returns (bool) {</span>
+<span class="cstat-no" title="statement not covered" >		for (uint8 i = 0; i &lt; 3; i++) {</span>
+<span class="cstat-no" title="statement not covered" >			for (uint8 j = 0; j &lt; 3; j++) {</span>
+<span class="cstat-no" title="statement not covered" >				if (board[i][j] == 0) {</span>
+<span class="cstat-no" title="statement not covered" >					return false;</span>
+				}
+			}
+		}
+<span class="cstat-no" title="statement not covered" >		return !checkWin();</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	function _execute(</span>
+		string calldata sourceChain,
+		string calldata sourceAddress,
+		bytes calldata _payload
+	) internal override {
+<span class="cstat-no" title="statement not covered" >		string memory flag = abi.decode(_payload, (string));</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		if (</span>
+			keccak256(abi.encodePacked(flag)) ==
+			keccak256(abi.encodePacked('startGame'))
+		) {
+<span class="cstat-no" title="statement not covered" >			(string memory failFlag, address playerOne, address playerTwo) = abi</span>
+				.decode(_payload, (string, address, address));
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			_startGame(playerOne, playerTwo)</span>;
+		} else <span class="cstat-no" title="statement not covered" >if (</span>
+			keccak256(abi.encodePacked(flag)) ==
+			keccak256(abi.encodePacked('makeMove'))
+		) {
+<span class="cstat-no" title="statement not covered" >			(string memory failFlag, uint8 _row, uint8 _col) = abi.decode(</span>
+				_payload,
+				(string, uint8, uint8)
+			);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			_makeMove(_row, _col)</span>;
+		} else <span class="cstat-no" title="statement not covered" >if (</span>
+			keccak256(abi.encodePacked(flag)) ==
+			keccak256(abi.encodePacked('resetGame'))
+		) {
+<span class="cstat-no" title="statement not covered" >			_resetGame()</span>;
+		}
+	}
+&nbsp;
+	//// Private functions
+&nbsp;
+<span class="fstat-no" title="function not covered" >	function _startGame(</span>
+		address _playerOne,
+		address _playerTwo
+	) private returns (string memory, address, address) {
+<span class="cstat-no" title="statement not covered" >		string memory flag = 'startGame';</span>
+&nbsp;
+		players[0] = _playerOne;
+		players[1] = _playerTwo;
+		currentPlayer = 0;
+		gameOver = false;
+		lastMoveTimestamp = block.timestamp;
+		gameCount++;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		emit GameStarted(_playerOne, _playerTwo);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		return (flag, _playerOne, _playerTwo);</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	function _makeMove(uint8 _row, uint8 _col) private returns (string memory) {</span>
+<span class="cstat-no" title="statement not covered" >		string memory flag = 'makeMove';</span>
+&nbsp;
+		board[_row][_col] = uint8(currentPlayer + 1);
+<span class="cstat-no" title="statement not covered" >		emit MoveMade(msg.sender, _row, _col);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		if (checkWin()) {</span>
+			gameOver = true;
+			winner = msg.sender;
+			lastRoundWinner = msg.sender;
+<span class="cstat-no" title="statement not covered" >			emit GameWon(msg.sender);</span>
+		} else <span class="cstat-no" title="statement not covered" >if (checkDraw()) {</span>
+			gameOver = true;
+<span class="cstat-no" title="statement not covered" >			emit GameDraw();</span>
+		} else {
+			currentPlayer = 1 - currentPlayer;
+		}
+&nbsp;
+		lastMoveTimestamp = block.timestamp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		return flag;</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	function _resetGame() private returns (string memory) {</span>
+<span class="cstat-no" title="statement not covered" >		string memory flag = 'resetGame';</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		for (uint8 i = 0; i &lt; 3; i++) {</span>
+<span class="cstat-no" title="statement not covered" >			for (uint8 j = 0; j &lt; 3; j++) {</span>
+				board[i][j] = 0;
+			}
+		}
+&nbsp;
+		gameOver = false;
+		currentPlayer = 0;
+		roundCount = 0;
+		winner = address(0);
+		lastMoveTimestamp = block.timestamp;
+		players[0] = address(0);
+		players[1] = address(0);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		emit GameReset();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		return flag;</span>
+	}
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Sep 01 2024 13:09:35 GMT-0500 (Colombia Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
