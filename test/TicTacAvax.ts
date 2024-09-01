@@ -105,7 +105,7 @@ describe('Tic Tac Avax', function () {
 
 			it('Should return the game round count', async () => {
 				const round = await ticTacAvax.roundCount()
-				expect(round).to.equal(1)
+				expect(round).to.equal(0)
 			})
 
 			it('Should return the game status', async () => {

@@ -144,8 +144,8 @@ const config: HardhatUserConfig = {
 		enabled: Boolean(REPORT_GAS),
 		coinmarketcap,
 		currency: 'USD',
-		L1: 'avalanche'
-		// outputFile: 'gas-report.txt'
+		L1: 'avalanche',
+		outputFile: 'gas-report.txt'
 	},
 	mocha: {
 		timeout: 200000
