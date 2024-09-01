@@ -13,8 +13,11 @@ contract TicTacAvaxCross is AxelarExecutable {
 	uint public currentPlayer;
 	uint8[3][3] public board;
 	uint public roundCount;
+	uint public gameCount;
 	bool public gameOver;
+	address public winner;
 	uint public lastMoveTimestamp;
+	address public lastRoundWinner;
 
 	event GameStarted(address player1, address player2);
 	event MoveMade(address player, uint8 row, uint8 col);
@@ -86,9 +89,9 @@ contract TicTacAvaxCross is AxelarExecutable {
 	) public payable onlyPlayers validMove(_row, _col) {
 		require(msg.sender == players[currentPlayer], 'Not your turn');
 
-		_makeMove(_row, _col);
+		string memory flag = _makeMove(_row, _col);
 
-		bytes memory payload = abi.encode(_row, _col);
+		bytes memory payload = abi.encode(flag, _row, _col);
 
 		gasService.payNativeGasForContractCall{value: msg.value}(
 			address(this),
@@ -181,17 +184,18 @@ contract TicTacAvaxCross is AxelarExecutable {
 			keccak256(abi.encodePacked(flag)) ==
 			keccak256(abi.encodePacked('startGame'))
 		) {
-			(address playerOne, address playerTwo) = abi.decode(
-				_payload,
-				(address, address)
-			);
+			(string memory failFlag, address playerOne, address playerTwo) = abi
+				.decode(_payload, (string, address, address));
 
 			_startGame(playerOne, playerTwo);
 		} else if (
 			keccak256(abi.encodePacked(flag)) ==
 			keccak256(abi.encodePacked('makeMove'))
 		) {
-			(uint8 _row, uint8 _col) = abi.decode(_payload, (uint8, uint8));
+			(string memory failFlag, uint8 _row, uint8 _col) = abi.decode(
+				_payload,
+				(string, uint8, uint8)
+			);
 
 			_makeMove(_row, _col);
 		} else if (
@@ -214,20 +218,24 @@ contract TicTacAvaxCross is AxelarExecutable {
 		players[1] = _playerTwo;
 		currentPlayer = 0;
 		gameOver = false;
-		roundCount++;
 		lastMoveTimestamp = block.timestamp;
+		gameCount++;
 
 		emit GameStarted(_playerOne, _playerTwo);
 
 		return (flag, _playerOne, _playerTwo);
 	}
 
-	function _makeMove(uint8 _row, uint8 _col) private {
+	function _makeMove(uint8 _row, uint8 _col) private returns (string memory) {
+		string memory flag = 'makeMove';
+
 		board[_row][_col] = uint8(currentPlayer + 1);
 		emit MoveMade(msg.sender, _row, _col);
 
 		if (checkWin()) {
 			gameOver = true;
+			winner = msg.sender;
+			lastRoundWinner = msg.sender;
 			emit GameWon(msg.sender);
 		} else if (checkDraw()) {
 			gameOver = true;
@@ -237,6 +245,8 @@ contract TicTacAvaxCross is AxelarExecutable {
 		}
 
 		lastMoveTimestamp = block.timestamp;
+
+		return flag;
 	}
 
 	function _resetGame() private returns (string memory) {
@@ -250,7 +260,8 @@ contract TicTacAvaxCross is AxelarExecutable {
 
 		gameOver = false;
 		currentPlayer = 0;
-		roundCount++;
+		roundCount = 0;
+		winner = address(0);
 		lastMoveTimestamp = block.timestamp;
 		players[0] = address(0);
 		players[1] = address(0);

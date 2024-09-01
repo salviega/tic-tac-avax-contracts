@@ -16,6 +16,9 @@ export const networkConfig: networkConfigInfo = {
 	avalancheFuji: {
 		blockConfirmations: 3
 	},
+	baseSepolia: {
+		blockConfirmations: 3
+	},
 	celoAlfajores: {
 		blockConfirmations: 3
 	}
@@ -24,5 +27,6 @@ export const networkConfig: networkConfigInfo = {
 export const developmentChains = [
 	'arbitrumSepolia',
 	'avalancheFuji',
+	'baseSepolia',
 	'celoAlfajores'
 ]

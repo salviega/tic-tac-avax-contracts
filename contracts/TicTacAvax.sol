@@ -6,8 +6,11 @@ contract TicTacAvax {
 	uint public currentPlayer;
 	uint8[3][3] public board;
 	uint public roundCount;
+	uint public gameCount;
 	bool public gameOver;
+	address public winner;
 	uint public lastMoveTimestamp;
+	address public lastRoundWinner;
 
 	event GameStarted(address player1, address player2);
 	event MoveMade(address player, uint8 row, uint8 col);
@@ -30,9 +33,7 @@ contract TicTacAvax {
 		_;
 	}
 
-	constructor() payable {
-		require(msg.value > 0, 'Funds are required to deploy the contract');
-	}
+	constructor() {}
 
 	function startGame(address playerOne, address playerTwo) public {
 		require(
@@ -49,8 +50,8 @@ contract TicTacAvax {
 		players[1] = playerTwo;
 		currentPlayer = 0;
 		gameOver = false;
-		roundCount++;
 		lastMoveTimestamp = block.timestamp;
+		gameCount++;
 
 		emit GameStarted(playerOne, playerTwo);
 	}
@@ -66,6 +67,8 @@ contract TicTacAvax {
 
 		if (checkWin()) {
 			gameOver = true;
+			winner = msg.sender;
+			lastRoundWinner = msg.sender;
 			emit GameWon(msg.sender);
 		} else if (checkDraw()) {
 			gameOver = true;
@@ -75,6 +78,7 @@ contract TicTacAvax {
 		}
 
 		lastMoveTimestamp = block.timestamp;
+		roundCount++;
 	}
 
 	function checkWin() internal view returns (bool) {
@@ -128,7 +132,8 @@ contract TicTacAvax {
 
 		gameOver = false;
 		currentPlayer = 0;
-		roundCount++;
+		roundCount = 0;
+		winner = address(0);
 		lastMoveTimestamp = block.timestamp;
 		players[0] = address(0);
 		players[1] = address(0);
