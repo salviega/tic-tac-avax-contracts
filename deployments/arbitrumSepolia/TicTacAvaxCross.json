@@ -1,0 +1,594 @@
+{
+  "address": "0x4c39fCcF7b41f5ce76AF78a5C43F42F75DBc8637",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_gateway",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_gasService",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidAddress",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NotApprovedByGateway",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [],
+      "name": "GameDraw",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [],
+      "name": "GameReset",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "player1",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "player2",
+          "type": "address"
+        }
+      ],
+      "name": "GameStarted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "winner",
+          "type": "address"
+        }
+      ],
+      "name": "GameWon",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "player",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint8",
+          "name": "row",
+          "type": "uint8"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint8",
+          "name": "col",
+          "type": "uint8"
+        }
+      ],
+      "name": "MoveMade",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "board",
+      "outputs": [
+        {
+          "internalType": "uint8",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "currentPlayer",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "commandId",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "string",
+          "name": "sourceChain",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "sourceAddress",
+          "type": "string"
+        },
+        {
+          "internalType": "bytes",
+          "name": "payload",
+          "type": "bytes"
+        }
+      ],
+      "name": "execute",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "commandId",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "string",
+          "name": "sourceChain",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "sourceAddress",
+          "type": "string"
+        },
+        {
+          "internalType": "bytes",
+          "name": "payload",
+          "type": "bytes"
+        },
+        {
+          "internalType": "string",
+          "name": "tokenSymbol",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "executeWithToken",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "gameCount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "gameOver",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "gasService",
+      "outputs": [
+        {
+          "internalType": "contract IAxelarGasService",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "gateway",
+      "outputs": [
+        {
+          "internalType": "contract IAxelarGateway",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getBoard",
+      "outputs": [
+        {
+          "internalType": "uint8[3][3]",
+          "name": "",
+          "type": "uint8[3][3]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "lastMoveTimestamp",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "lastRoundWinner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_destinationChain",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_destinationAddress",
+          "type": "string"
+        },
+        {
+          "internalType": "uint8",
+          "name": "_row",
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint8",
+          "name": "_col",
+          "type": "uint8"
+        }
+      ],
+      "name": "makeMove",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "message",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "players",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_destinationChain",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_destinationAddress",
+          "type": "string"
+        }
+      ],
+      "name": "resetGame",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "roundCount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_destinationChain",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_destinationAddress",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "playerOne",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "playerTwo",
+          "type": "address"
+        }
+      ],
+      "name": "startGame",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "winner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x6e2df2d9662cdb55fc31e596087aa56898404d3ffd537296c34a35b72248b723",
+  "receipt": {
+    "to": null,
+    "from": "0xD96B642Ca70edB30e58248689CEaFc6E36785d68",
+    "contractAddress": "0x4c39fCcF7b41f5ce76AF78a5C43F42F75DBc8637",
+    "transactionIndex": 1,
+    "gasUsed": "3019782",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0xb3c9b03890ef166476c85439d2ab01a65566d20cc8fd995cb64a147292d3d46f",
+    "transactionHash": "0x6e2df2d9662cdb55fc31e596087aa56898404d3ffd537296c34a35b72248b723",
+    "logs": [],
+    "blockNumber": 76055084,
+    "cumulativeGasUsed": "3019782",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0xe1cE95479C84e9809269227C7F8524aE051Ae77a",
+    "0xbE406F0189A0B4cf3A05C286473D23791Dd44Cc6"
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "5e477a5fb13de56715d18a757b850459",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.24+commit.e11b9ed9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_gateway\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_gasService\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"InvalidAddress\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotApprovedByGateway\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[],\"name\":\"GameDraw\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[],\"name\":\"GameReset\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"player1\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"player2\",\"type\":\"address\"}],\"name\":\"GameStarted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"winner\",\"type\":\"address\"}],\"name\":\"GameWon\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"player\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"row\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"col\",\"type\":\"uint8\"}],\"name\":\"MoveMade\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"board\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"currentPlayer\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"commandId\",\"type\":\"bytes32\"},{\"internalType\":\"string\",\"name\":\"sourceChain\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"sourceAddress\",\"type\":\"string\"},{\"internalType\":\"bytes\",\"name\":\"payload\",\"type\":\"bytes\"}],\"name\":\"execute\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"commandId\",\"type\":\"bytes32\"},{\"internalType\":\"string\",\"name\":\"sourceChain\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"sourceAddress\",\"type\":\"string\"},{\"internalType\":\"bytes\",\"name\":\"payload\",\"type\":\"bytes\"},{\"internalType\":\"string\",\"name\":\"tokenSymbol\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"executeWithToken\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"gameCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"gameOver\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"gasService\",\"outputs\":[{\"internalType\":\"contract IAxelarGasService\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"gateway\",\"outputs\":[{\"internalType\":\"contract IAxelarGateway\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBoard\",\"outputs\":[{\"internalType\":\"uint8[3][3]\",\"name\":\"\",\"type\":\"uint8[3][3]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"lastMoveTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"lastRoundWinner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_destinationChain\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_destinationAddress\",\"type\":\"string\"},{\"internalType\":\"uint8\",\"name\":\"_row\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"_col\",\"type\":\"uint8\"}],\"name\":\"makeMove\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"message\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"players\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_destinationChain\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_destinationAddress\",\"type\":\"string\"}],\"name\":\"resetGame\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"roundCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_destinationChain\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_destinationAddress\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"playerOne\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"playerTwo\",\"type\":\"address\"}],\"name\":\"startGame\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"winner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"getBoard()\":{\"notice\":\"View functions\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/TicTacAvaxCross.sol\":\"TicTacAvaxCross\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"@axelar-network/axelar-gmp-sdk-solidity/contracts/executable/AxelarExecutable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.0;\\n\\nimport { IAxelarGateway } from '../interfaces/IAxelarGateway.sol';\\nimport { IAxelarExecutable } from '../interfaces/IAxelarExecutable.sol';\\n\\ncontract AxelarExecutable is IAxelarExecutable {\\n    IAxelarGateway public immutable gateway;\\n\\n    constructor(address gateway_) {\\n        if (gateway_ == address(0)) revert InvalidAddress();\\n\\n        gateway = IAxelarGateway(gateway_);\\n    }\\n\\n    function execute(\\n        bytes32 commandId,\\n        string calldata sourceChain,\\n        string calldata sourceAddress,\\n        bytes calldata payload\\n    ) external {\\n        bytes32 payloadHash = keccak256(payload);\\n\\n        if (!gateway.validateContractCall(commandId, sourceChain, sourceAddress, payloadHash))\\n            revert NotApprovedByGateway();\\n\\n        _execute(sourceChain, sourceAddress, payload);\\n    }\\n\\n    function executeWithToken(\\n        bytes32 commandId,\\n        string calldata sourceChain,\\n        string calldata sourceAddress,\\n        bytes calldata payload,\\n        string calldata tokenSymbol,\\n        uint256 amount\\n    ) external {\\n        bytes32 payloadHash = keccak256(payload);\\n\\n        if (\\n            !gateway.validateContractCallAndMint(\\n                commandId,\\n                sourceChain,\\n                sourceAddress,\\n                payloadHash,\\n                tokenSymbol,\\n                amount\\n            )\\n        ) revert NotApprovedByGateway();\\n\\n        _executeWithToken(sourceChain, sourceAddress, payload, tokenSymbol, amount);\\n    }\\n\\n    function _execute(\\n        string calldata sourceChain,\\n        string calldata sourceAddress,\\n        bytes calldata payload\\n    ) internal virtual {}\\n\\n    function _executeWithToken(\\n        string calldata sourceChain,\\n        string calldata sourceAddress,\\n        bytes calldata payload,\\n        string calldata tokenSymbol,\\n        uint256 amount\\n    ) internal virtual {}\\n}\\n\",\"keccak256\":\"0x2a88d046f9cdc664afc7b788d6c5b534d361b46fb45ab7abf721a58dd813359b\",\"license\":\"MIT\"},\"@axelar-network/axelar-gmp-sdk-solidity/contracts/interfaces/IAxelarExecutable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.0;\\n\\nimport { IAxelarGateway } from './IAxelarGateway.sol';\\n\\ninterface IAxelarExecutable {\\n    error InvalidAddress();\\n    error NotApprovedByGateway();\\n\\n    function gateway() external view returns (IAxelarGateway);\\n\\n    function execute(\\n        bytes32 commandId,\\n        string calldata sourceChain,\\n        string calldata sourceAddress,\\n        bytes calldata payload\\n    ) external;\\n\\n    function executeWithToken(\\n        bytes32 commandId,\\n        string calldata sourceChain,\\n        string calldata sourceAddress,\\n        bytes calldata payload,\\n        string calldata tokenSymbol,\\n        uint256 amount\\n    ) external;\\n}\\n\",\"keccak256\":\"0x4279ef3b4fe5e7082f39c665d4aeddc6d84fcc6fadaacd1d8ae604ba6146b8e6\",\"license\":\"MIT\"},\"@axelar-network/axelar-gmp-sdk-solidity/contracts/interfaces/IAxelarGasService.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.0;\\n\\nimport { GasInfo } from '../types/GasEstimationTypes.sol';\\nimport { IInterchainGasEstimation } from './IInterchainGasEstimation.sol';\\nimport { IUpgradable } from './IUpgradable.sol';\\n\\n/**\\n * @title IAxelarGasService Interface\\n * @notice This is an interface for the AxelarGasService contract which manages gas payments\\n * and refunds for cross-chain communication on the Axelar network.\\n * @dev This interface inherits IUpgradable\\n */\\ninterface IAxelarGasService is IInterchainGasEstimation, IUpgradable {\\n    error InvalidAddress();\\n    error NotCollector();\\n    error InvalidAmounts();\\n    error InvalidGasUpdates();\\n    error InvalidParams();\\n    error InsufficientGasPayment(uint256 required, uint256 provided);\\n\\n    event GasPaidForContractCall(\\n        address indexed sourceAddress,\\n        string destinationChain,\\n        string destinationAddress,\\n        bytes32 indexed payloadHash,\\n        address gasToken,\\n        uint256 gasFeeAmount,\\n        address refundAddress\\n    );\\n\\n    event GasPaidForContractCallWithToken(\\n        address indexed sourceAddress,\\n        string destinationChain,\\n        string destinationAddress,\\n        bytes32 indexed payloadHash,\\n        string symbol,\\n        uint256 amount,\\n        address gasToken,\\n        uint256 gasFeeAmount,\\n        address refundAddress\\n    );\\n\\n    event NativeGasPaidForContractCall(\\n        address indexed sourceAddress,\\n        string destinationChain,\\n        string destinationAddress,\\n        bytes32 indexed payloadHash,\\n        uint256 gasFeeAmount,\\n        address refundAddress\\n    );\\n\\n    event NativeGasPaidForContractCallWithToken(\\n        address indexed sourceAddress,\\n        string destinationChain,\\n        string destinationAddress,\\n        bytes32 indexed payloadHash,\\n        string symbol,\\n        uint256 amount,\\n        uint256 gasFeeAmount,\\n        address refundAddress\\n    );\\n\\n    event GasPaidForExpressCall(\\n        address indexed sourceAddress,\\n        string destinationChain,\\n        string destinationAddress,\\n        bytes32 indexed payloadHash,\\n        address gasToken,\\n        uint256 gasFeeAmount,\\n        address refundAddress\\n    );\\n\\n    event GasPaidForExpressCallWithToken(\\n        address indexed sourceAddress,\\n        string destinationChain,\\n        string destinationAddress,\\n        bytes32 indexed payloadHash,\\n        string symbol,\\n        uint256 amount,\\n        address gasToken,\\n        uint256 gasFeeAmount,\\n        address refundAddress\\n    );\\n\\n    event NativeGasPaidForExpressCall(\\n        address indexed sourceAddress,\\n        string destinationChain,\\n        string destinationAddress,\\n        bytes32 indexed payloadHash,\\n        uint256 gasFeeAmount,\\n        address refundAddress\\n    );\\n\\n    event NativeGasPaidForExpressCallWithToken(\\n        address indexed sourceAddress,\\n        string destinationChain,\\n        string destinationAddress,\\n        bytes32 indexed payloadHash,\\n        string symbol,\\n        uint256 amount,\\n        uint256 gasFeeAmount,\\n        address refundAddress\\n    );\\n\\n    event GasAdded(\\n        bytes32 indexed txHash,\\n        uint256 indexed logIndex,\\n        address gasToken,\\n        uint256 gasFeeAmount,\\n        address refundAddress\\n    );\\n\\n    event NativeGasAdded(bytes32 indexed txHash, uint256 indexed logIndex, uint256 gasFeeAmount, address refundAddress);\\n\\n    event ExpressGasAdded(\\n        bytes32 indexed txHash,\\n        uint256 indexed logIndex,\\n        address gasToken,\\n        uint256 gasFeeAmount,\\n        address refundAddress\\n    );\\n\\n    event NativeExpressGasAdded(\\n        bytes32 indexed txHash,\\n        uint256 indexed logIndex,\\n        uint256 gasFeeAmount,\\n        address refundAddress\\n    );\\n\\n    event Refunded(\\n        bytes32 indexed txHash,\\n        uint256 indexed logIndex,\\n        address payable receiver,\\n        address token,\\n        uint256 amount\\n    );\\n\\n    /**\\n     * @notice Pay for gas for any type of contract execution on a destination chain.\\n     * @dev This function is called on the source chain before calling the gateway to execute a remote contract.\\n     * @dev If estimateOnChain is true, the function will estimate the gas cost and revert if the payment is insufficient.\\n     * @param sender The address making the payment\\n     * @param destinationChain The target chain where the contract call will be made\\n     * @param destinationAddress The target address on the destination chain\\n     * @param payload Data payload for the contract call\\n     * @param executionGasLimit The gas limit for the contract call\\n     * @param estimateOnChain Flag to enable on-chain gas estimation\\n     * @param refundAddress The address where refunds, if any, should be sent\\n     * @param params Additional parameters for gas payment. This can be left empty for normal contract call payments.\\n     */\\n    function payGas(\\n        address sender,\\n        string calldata destinationChain,\\n        string calldata destinationAddress,\\n        bytes calldata payload,\\n        uint256 executionGasLimit,\\n        bool estimateOnChain,\\n        address refundAddress,\\n        bytes calldata params\\n    ) external payable;\\n\\n    /**\\n     * @notice Pay for gas using ERC20 tokens for a contract call on a destination chain.\\n     * @dev This function is called on the source chain before calling the gateway to execute a remote contract.\\n     * @param sender The address making the payment\\n     * @param destinationChain The target chain where the contract call will be made\\n     * @param destinationAddress The target address on the destination chain\\n     * @param payload Data payload for the contract call\\n     * @param gasToken The address of the ERC20 token used to pay for gas\\n     * @param gasFeeAmount The amount of tokens to pay for gas\\n     * @param refundAddress The address where refunds, if any, should be sent\\n     */\\n    function payGasForContractCall(\\n        address sender,\\n        string calldata destinationChain,\\n        string calldata destinationAddress,\\n        bytes calldata payload,\\n        address gasToken,\\n        uint256 gasFeeAmount,\\n        address refundAddress\\n    ) external;\\n\\n    /**\\n     * @notice Pay for gas using ERC20 tokens for a contract call with tokens on a destination chain.\\n     * @dev This function is called on the source chain before calling the gateway to execute a remote contract.\\n     * @param sender The address making the payment\\n     * @param destinationChain The target chain where the contract call with tokens will be made\\n     * @param destinationAddress The target address on the destination chain\\n     * @param payload Data payload for the contract call with tokens\\n     * @param symbol The symbol of the token to be sent with the call\\n     * @param amount The amount of tokens to be sent with the call\\n     * @param gasToken The address of the ERC20 token used to pay for gas\\n     * @param gasFeeAmount The amount of tokens to pay for gas\\n     * @param refundAddress The address where refunds, if any, should be sent\\n     */\\n    function payGasForContractCallWithToken(\\n        address sender,\\n        string calldata destinationChain,\\n        string calldata destinationAddress,\\n        bytes calldata payload,\\n        string calldata symbol,\\n        uint256 amount,\\n        address gasToken,\\n        uint256 gasFeeAmount,\\n        address refundAddress\\n    ) external;\\n\\n    /**\\n     * @notice Pay for gas using native currency for a contract call on a destination chain.\\n     * @dev This function is called on the source chain before calling the gateway to execute a remote contract.\\n     * @param sender The address making the payment\\n     * @param destinationChain The target chain where the contract call will be made\\n     * @param destinationAddress The target address on the destination chain\\n     * @param payload Data payload for the contract call\\n     * @param refundAddress The address where refunds, if any, should be sent\\n     */\\n    function payNativeGasForContractCall(\\n        address sender,\\n        string calldata destinationChain,\\n        string calldata destinationAddress,\\n        bytes calldata payload,\\n        address refundAddress\\n    ) external payable;\\n\\n    /**\\n     * @notice Pay for gas using native currency for a contract call with tokens on a destination chain.\\n     * @dev This function is called on the source chain before calling the gateway to execute a remote contract.\\n     * @param sender The address making the payment\\n     * @param destinationChain The target chain where the contract call with tokens will be made\\n     * @param destinationAddress The target address on the destination chain\\n     * @param payload Data payload for the contract call with tokens\\n     * @param symbol The symbol of the token to be sent with the call\\n     * @param amount The amount of tokens to be sent with the call\\n     * @param refundAddress The address where refunds, if any, should be sent\\n     */\\n    function payNativeGasForContractCallWithToken(\\n        address sender,\\n        string calldata destinationChain,\\n        string calldata destinationAddress,\\n        bytes calldata payload,\\n        string calldata symbol,\\n        uint256 amount,\\n        address refundAddress\\n    ) external payable;\\n\\n    /**\\n     * @notice Pay for gas using ERC20 tokens for an express contract call on a destination chain.\\n     * @dev This function is called on the source chain before calling the gateway to express execute a remote contract.\\n     * @param sender The address making the payment\\n     * @param destinationChain The target chain where the contract call will be made\\n     * @param destinationAddress The target address on the destination chain\\n     * @param payload Data payload for the contract call\\n     * @param gasToken The address of the ERC20 token used to pay for gas\\n     * @param gasFeeAmount The amount of tokens to pay for gas\\n     * @param refundAddress The address where refunds, if any, should be sent\\n     */\\n    function payGasForExpressCall(\\n        address sender,\\n        string calldata destinationChain,\\n        string calldata destinationAddress,\\n        bytes calldata payload,\\n        address gasToken,\\n        uint256 gasFeeAmount,\\n        address refundAddress\\n    ) external;\\n\\n    /**\\n     * @notice Pay for gas using ERC20 tokens for an express contract call with tokens on a destination chain.\\n     * @dev This function is called on the source chain before calling the gateway to express execute a remote contract.\\n     * @param sender The address making the payment\\n     * @param destinationChain The target chain where the contract call with tokens will be made\\n     * @param destinationAddress The target address on the destination chain\\n     * @param payload Data payload for the contract call with tokens\\n     * @param symbol The symbol of the token to be sent with the call\\n     * @param amount The amount of tokens to be sent with the call\\n     * @param gasToken The address of the ERC20 token used to pay for gas\\n     * @param gasFeeAmount The amount of tokens to pay for gas\\n     * @param refundAddress The address where refunds, if any, should be sent\\n     */\\n    function payGasForExpressCallWithToken(\\n        address sender,\\n        string calldata destinationChain,\\n        string calldata destinationAddress,\\n        bytes calldata payload,\\n        string calldata symbol,\\n        uint256 amount,\\n        address gasToken,\\n        uint256 gasFeeAmount,\\n        address refundAddress\\n    ) external;\\n\\n    /**\\n     * @notice Pay for gas using native currency for an express contract call on a destination chain.\\n     * @dev This function is called on the source chain before calling the gateway to execute a remote contract.\\n     * @param sender The address making the payment\\n     * @param destinationChain The target chain where the contract call will be made\\n     * @param destinationAddress The target address on the destination chain\\n     * @param payload Data payload for the contract call\\n     * @param refundAddress The address where refunds, if any, should be sent\\n     */\\n    function payNativeGasForExpressCall(\\n        address sender,\\n        string calldata destinationChain,\\n        string calldata destinationAddress,\\n        bytes calldata payload,\\n        address refundAddress\\n    ) external payable;\\n\\n    /**\\n     * @notice Pay for gas using native currency for an express contract call with tokens on a destination chain.\\n     * @dev This function is called on the source chain before calling the gateway to execute a remote contract.\\n     * @param sender The address making the payment\\n     * @param destinationChain The target chain where the contract call with tokens will be made\\n     * @param destinationAddress The target address on the destination chain\\n     * @param payload Data payload for the contract call with tokens\\n     * @param symbol The symbol of the token to be sent with the call\\n     * @param amount The amount of tokens to be sent with the call\\n     * @param refundAddress The address where refunds, if any, should be sent\\n     */\\n    function payNativeGasForExpressCallWithToken(\\n        address sender,\\n        string calldata destinationChain,\\n        string calldata destinationAddress,\\n        bytes calldata payload,\\n        string calldata symbol,\\n        uint256 amount,\\n        address refundAddress\\n    ) external payable;\\n\\n    /**\\n     * @notice Add additional gas payment using ERC20 tokens after initiating a cross-chain call.\\n     * @dev This function can be called on the source chain after calling the gateway to execute a remote contract.\\n     * @param txHash The transaction hash of the cross-chain call\\n     * @param logIndex The log index for the cross-chain call\\n     * @param gasToken The ERC20 token address used to add gas\\n     * @param gasFeeAmount The amount of tokens to add as gas\\n     * @param refundAddress The address where refunds, if any, should be sent\\n     */\\n    function addGas(\\n        bytes32 txHash,\\n        uint256 logIndex,\\n        address gasToken,\\n        uint256 gasFeeAmount,\\n        address refundAddress\\n    ) external;\\n\\n    /**\\n     * @notice Add additional gas payment using native currency after initiating a cross-chain call.\\n     * @dev This function can be called on the source chain after calling the gateway to execute a remote contract.\\n     * @param txHash The transaction hash of the cross-chain call\\n     * @param logIndex The log index for the cross-chain call\\n     * @param refundAddress The address where refunds, if any, should be sent\\n     */\\n    function addNativeGas(\\n        bytes32 txHash,\\n        uint256 logIndex,\\n        address refundAddress\\n    ) external payable;\\n\\n    /**\\n     * @notice Add additional gas payment using ERC20 tokens after initiating an express cross-chain call.\\n     * @dev This function can be called on the source chain after calling the gateway to express execute a remote contract.\\n     * @param txHash The transaction hash of the cross-chain call\\n     * @param logIndex The log index for the cross-chain call\\n     * @param gasToken The ERC20 token address used to add gas\\n     * @param gasFeeAmount The amount of tokens to add as gas\\n     * @param refundAddress The address where refunds, if any, should be sent\\n     */\\n    function addExpressGas(\\n        bytes32 txHash,\\n        uint256 logIndex,\\n        address gasToken,\\n        uint256 gasFeeAmount,\\n        address refundAddress\\n    ) external;\\n\\n    /**\\n     * @notice Add additional gas payment using native currency after initiating an express cross-chain call.\\n     * @dev This function can be called on the source chain after calling the gateway to express execute a remote contract.\\n     * @param txHash The transaction hash of the cross-chain call\\n     * @param logIndex The log index for the cross-chain call\\n     * @param refundAddress The address where refunds, if any, should be sent\\n     */\\n    function addNativeExpressGas(\\n        bytes32 txHash,\\n        uint256 logIndex,\\n        address refundAddress\\n    ) external payable;\\n\\n    /**\\n     * @notice Updates the gas price for a specific chain.\\n     * @dev This function is called by the gas oracle to update the gas prices for a specific chains.\\n     * @param chains Array of chain names\\n     * @param gasUpdates Array of gas updates\\n     */\\n    function updateGasInfo(string[] calldata chains, GasInfo[] calldata gasUpdates) external;\\n\\n    /**\\n     * @notice Allows the gasCollector to collect accumulated fees from the contract.\\n     * @dev Use address(0) as the token address for native currency.\\n     * @param receiver The address to receive the collected fees\\n     * @param tokens Array of token addresses to be collected\\n     * @param amounts Array of amounts to be collected for each respective token address\\n     */\\n    function collectFees(\\n        address payable receiver,\\n        address[] calldata tokens,\\n        uint256[] calldata amounts\\n    ) external;\\n\\n    /**\\n     * @notice Refunds gas payment to the receiver in relation to a specific cross-chain transaction.\\n     * @dev Only callable by the gasCollector.\\n     * @dev Use address(0) as the token address to refund native currency.\\n     * @param txHash The transaction hash of the cross-chain call\\n     * @param logIndex The log index for the cross-chain call\\n     * @param receiver The address to receive the refund\\n     * @param token The token address to be refunded\\n     * @param amount The amount to refund\\n     */\\n    function refund(\\n        bytes32 txHash,\\n        uint256 logIndex,\\n        address payable receiver,\\n        address token,\\n        uint256 amount\\n    ) external;\\n\\n    /**\\n     * @notice Returns the address of the designated gas collector.\\n     * @return address of the gas collector\\n     */\\n    function gasCollector() external returns (address);\\n}\\n\",\"keccak256\":\"0x7ad77d3af41f342e9032889a7b5aa224ab0c6dfaf9ce9350fe403d4a596c5eae\",\"license\":\"MIT\"},\"@axelar-network/axelar-gmp-sdk-solidity/contracts/interfaces/IAxelarGateway.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.0;\\n\\nimport { IGovernable } from './IGovernable.sol';\\nimport { IImplementation } from './IImplementation.sol';\\n\\ninterface IAxelarGateway is IImplementation, IGovernable {\\n    /**********\\\\\\n    |* Errors *|\\n    \\\\**********/\\n\\n    error NotSelf();\\n    error InvalidCodeHash();\\n    error SetupFailed();\\n    error InvalidAuthModule();\\n    error InvalidTokenDeployer();\\n    error InvalidAmount();\\n    error InvalidChainId();\\n    error InvalidCommands();\\n    error TokenDoesNotExist(string symbol);\\n    error TokenAlreadyExists(string symbol);\\n    error TokenDeployFailed(string symbol);\\n    error TokenContractDoesNotExist(address token);\\n    error BurnFailed(string symbol);\\n    error MintFailed(string symbol);\\n    error InvalidSetMintLimitsParams();\\n    error ExceedMintLimit(string symbol);\\n\\n    /**********\\\\\\n    |* Events *|\\n    \\\\**********/\\n\\n    event TokenSent(\\n        address indexed sender,\\n        string destinationChain,\\n        string destinationAddress,\\n        string symbol,\\n        uint256 amount\\n    );\\n\\n    event ContractCall(\\n        address indexed sender,\\n        string destinationChain,\\n        string destinationContractAddress,\\n        bytes32 indexed payloadHash,\\n        bytes payload\\n    );\\n\\n    event ContractCallWithToken(\\n        address indexed sender,\\n        string destinationChain,\\n        string destinationContractAddress,\\n        bytes32 indexed payloadHash,\\n        bytes payload,\\n        string symbol,\\n        uint256 amount\\n    );\\n\\n    event Executed(bytes32 indexed commandId);\\n\\n    event TokenDeployed(string symbol, address tokenAddresses);\\n\\n    event ContractCallApproved(\\n        bytes32 indexed commandId,\\n        string sourceChain,\\n        string sourceAddress,\\n        address indexed contractAddress,\\n        bytes32 indexed payloadHash,\\n        bytes32 sourceTxHash,\\n        uint256 sourceEventIndex\\n    );\\n\\n    event ContractCallApprovedWithMint(\\n        bytes32 indexed commandId,\\n        string sourceChain,\\n        string sourceAddress,\\n        address indexed contractAddress,\\n        bytes32 indexed payloadHash,\\n        string symbol,\\n        uint256 amount,\\n        bytes32 sourceTxHash,\\n        uint256 sourceEventIndex\\n    );\\n\\n    event ContractCallExecuted(bytes32 indexed commandId);\\n\\n    event TokenMintLimitUpdated(string symbol, uint256 limit);\\n\\n    event OperatorshipTransferred(bytes newOperatorsData);\\n\\n    event Upgraded(address indexed implementation);\\n\\n    /********************\\\\\\n    |* Public Functions *|\\n    \\\\********************/\\n\\n    function sendToken(\\n        string calldata destinationChain,\\n        string calldata destinationAddress,\\n        string calldata symbol,\\n        uint256 amount\\n    ) external;\\n\\n    function callContract(\\n        string calldata destinationChain,\\n        string calldata contractAddress,\\n        bytes calldata payload\\n    ) external;\\n\\n    function callContractWithToken(\\n        string calldata destinationChain,\\n        string calldata contractAddress,\\n        bytes calldata payload,\\n        string calldata symbol,\\n        uint256 amount\\n    ) external;\\n\\n    function isContractCallApproved(\\n        bytes32 commandId,\\n        string calldata sourceChain,\\n        string calldata sourceAddress,\\n        address contractAddress,\\n        bytes32 payloadHash\\n    ) external view returns (bool);\\n\\n    function isContractCallAndMintApproved(\\n        bytes32 commandId,\\n        string calldata sourceChain,\\n        string calldata sourceAddress,\\n        address contractAddress,\\n        bytes32 payloadHash,\\n        string calldata symbol,\\n        uint256 amount\\n    ) external view returns (bool);\\n\\n    function validateContractCall(\\n        bytes32 commandId,\\n        string calldata sourceChain,\\n        string calldata sourceAddress,\\n        bytes32 payloadHash\\n    ) external returns (bool);\\n\\n    function validateContractCallAndMint(\\n        bytes32 commandId,\\n        string calldata sourceChain,\\n        string calldata sourceAddress,\\n        bytes32 payloadHash,\\n        string calldata symbol,\\n        uint256 amount\\n    ) external returns (bool);\\n\\n    /***********\\\\\\n    |* Getters *|\\n    \\\\***********/\\n\\n    function authModule() external view returns (address);\\n\\n    function tokenDeployer() external view returns (address);\\n\\n    function tokenMintLimit(string memory symbol) external view returns (uint256);\\n\\n    function tokenMintAmount(string memory symbol) external view returns (uint256);\\n\\n    function allTokensFrozen() external view returns (bool);\\n\\n    function implementation() external view returns (address);\\n\\n    function tokenAddresses(string memory symbol) external view returns (address);\\n\\n    function tokenFrozen(string memory symbol) external view returns (bool);\\n\\n    function isCommandExecuted(bytes32 commandId) external view returns (bool);\\n\\n    /************************\\\\\\n    |* Governance Functions *|\\n    \\\\************************/\\n\\n    function setTokenMintLimits(string[] calldata symbols, uint256[] calldata limits) external;\\n\\n    function upgrade(\\n        address newImplementation,\\n        bytes32 newImplementationCodeHash,\\n        bytes calldata setupParams\\n    ) external;\\n\\n    /**********************\\\\\\n    |* External Functions *|\\n    \\\\**********************/\\n\\n    function execute(bytes calldata input) external;\\n}\\n\",\"keccak256\":\"0x98a66ec4f5c9e1e444ed39be682195834417cf2cd160db0c56f60e225c826be4\",\"license\":\"MIT\"},\"@axelar-network/axelar-gmp-sdk-solidity/contracts/interfaces/IContractIdentifier.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.0;\\n\\n// General interface for upgradable contracts\\ninterface IContractIdentifier {\\n    /**\\n     * @notice Returns the contract ID. It can be used as a check during upgrades.\\n     * @dev Meant to be overridden in derived contracts.\\n     * @return bytes32 The contract ID\\n     */\\n    function contractId() external pure returns (bytes32);\\n}\\n\",\"keccak256\":\"0x21a94655f7f1ed3d7188bd38ce6187892c615b80f9a74e123cbc38113d855a35\",\"license\":\"MIT\"},\"@axelar-network/axelar-gmp-sdk-solidity/contracts/interfaces/IGovernable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @title IGovernable Interface\\n * @notice This is an interface used by the AxelarGateway contract to manage governance and mint limiter roles.\\n */\\ninterface IGovernable {\\n    error NotGovernance();\\n    error NotMintLimiter();\\n    error InvalidGovernance();\\n    error InvalidMintLimiter();\\n\\n    event GovernanceTransferred(address indexed previousGovernance, address indexed newGovernance);\\n    event MintLimiterTransferred(address indexed previousGovernance, address indexed newGovernance);\\n\\n    /**\\n     * @notice Returns the governance address.\\n     * @return address of the governance\\n     */\\n    function governance() external view returns (address);\\n\\n    /**\\n     * @notice Returns the mint limiter address.\\n     * @return address of the mint limiter\\n     */\\n    function mintLimiter() external view returns (address);\\n\\n    /**\\n     * @notice Transfer the governance role to another address.\\n     * @param newGovernance The new governance address\\n     */\\n    function transferGovernance(address newGovernance) external;\\n\\n    /**\\n     * @notice Transfer the mint limiter role to another address.\\n     * @param newGovernance The new mint limiter address\\n     */\\n    function transferMintLimiter(address newGovernance) external;\\n}\\n\",\"keccak256\":\"0x686c534975bfc4e00f89be5e4a779a41a63f7c5fc204429c839bcdbf09584fd0\",\"license\":\"MIT\"},\"@axelar-network/axelar-gmp-sdk-solidity/contracts/interfaces/IImplementation.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.0;\\n\\nimport { IContractIdentifier } from './IContractIdentifier.sol';\\n\\ninterface IImplementation is IContractIdentifier {\\n    error NotProxy();\\n\\n    function setup(bytes calldata data) external;\\n}\\n\",\"keccak256\":\"0xa7f275514d44bec3ab8ab8c768736329174d7cc6c5cd329c3509a66bce9cd468\",\"license\":\"MIT\"},\"@axelar-network/axelar-gmp-sdk-solidity/contracts/interfaces/IInterchainGasEstimation.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.0;\\n\\nimport { GasEstimationType, GasInfo } from '../types/GasEstimationTypes.sol';\\n\\n/**\\n * @title IInterchainGasEstimation Interface\\n * @notice This is an interface for the InterchainGasEstimation contract\\n * which allows for estimating gas fees for cross-chain communication on the Axelar network.\\n */\\ninterface IInterchainGasEstimation {\\n    error UnsupportedEstimationType(GasEstimationType gasEstimationType);\\n\\n    /**\\n     * @notice Event emitted when the gas price for a specific chain is updated.\\n     * @param chain The name of the chain\\n     * @param info The gas info for the chain\\n     */\\n    event GasInfoUpdated(string chain, GasInfo info);\\n\\n    /**\\n     * @notice Returns the gas price for a specific chain.\\n     * @param chain The name of the chain\\n     * @return gasInfo The gas info for the chain\\n     */\\n    function getGasInfo(string calldata chain) external view returns (GasInfo memory);\\n\\n    /**\\n     * @notice Estimates the gas fee for a cross-chain contract call.\\n     * @param destinationChain Axelar registered name of the destination chain\\n     * @param destinationAddress Destination contract address being called\\n     * @param executionGasLimit The gas limit to be used for the destination contract execution,\\n     *        e.g. pass in 200k if your app consumes needs upto 200k for this contract call\\n     * @param params Additional parameters for the gas estimation\\n     * @return gasEstimate The cross-chain gas estimate, in terms of source chain's native gas token that should be forwarded to the gas service.\\n     */\\n    function estimateGasFee(\\n        string calldata destinationChain,\\n        string calldata destinationAddress,\\n        bytes calldata payload,\\n        uint256 executionGasLimit,\\n        bytes calldata params\\n    ) external view returns (uint256 gasEstimate);\\n}\\n\",\"keccak256\":\"0x5463c0d3632e53d3906796d4283a627bd7ebc63d0092685715d98340db9516ff\",\"license\":\"MIT\"},\"@axelar-network/axelar-gmp-sdk-solidity/contracts/interfaces/IOwnable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @title IOwnable Interface\\n * @notice IOwnable is an interface that abstracts the implementation of a\\n * contract with ownership control features. It's commonly used in upgradable\\n * contracts and includes the functionality to get current owner, transfer\\n * ownership, and propose and accept ownership.\\n */\\ninterface IOwnable {\\n    error NotOwner();\\n    error InvalidOwner();\\n    error InvalidOwnerAddress();\\n\\n    event OwnershipTransferStarted(address indexed newOwner);\\n    event OwnershipTransferred(address indexed newOwner);\\n\\n    /**\\n     * @notice Returns the current owner of the contract.\\n     * @return address The address of the current owner\\n     */\\n    function owner() external view returns (address);\\n\\n    /**\\n     * @notice Returns the address of the pending owner of the contract.\\n     * @return address The address of the pending owner\\n     */\\n    function pendingOwner() external view returns (address);\\n\\n    /**\\n     * @notice Transfers ownership of the contract to a new address\\n     * @param newOwner The address to transfer ownership to\\n     */\\n    function transferOwnership(address newOwner) external;\\n\\n    /**\\n     * @notice Proposes to transfer the contract's ownership to a new address.\\n     * The new owner needs to accept the ownership explicitly.\\n     * @param newOwner The address to transfer ownership to\\n     */\\n    function proposeOwnership(address newOwner) external;\\n\\n    /**\\n     * @notice Transfers ownership to the pending owner.\\n     * @dev Can only be called by the pending owner\\n     */\\n    function acceptOwnership() external;\\n}\\n\",\"keccak256\":\"0x5cb5691c9293e3011e1b133485411e8933ca1e110f2436a663df12991d134bf7\",\"license\":\"MIT\"},\"@axelar-network/axelar-gmp-sdk-solidity/contracts/interfaces/IUpgradable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.0;\\n\\nimport { IOwnable } from './IOwnable.sol';\\nimport { IImplementation } from './IImplementation.sol';\\n\\n// General interface for upgradable contracts\\ninterface IUpgradable is IOwnable, IImplementation {\\n    error InvalidCodeHash();\\n    error InvalidImplementation();\\n    error SetupFailed();\\n\\n    event Upgraded(address indexed newImplementation);\\n\\n    function implementation() external view returns (address);\\n\\n    function upgrade(\\n        address newImplementation,\\n        bytes32 newImplementationCodeHash,\\n        bytes calldata params\\n    ) external;\\n}\\n\",\"keccak256\":\"0x4e1f84c9711c3c15c77aee5fce8de99fcb49a902c7e6ff24626c924a60b8c22d\",\"license\":\"MIT\"},\"@axelar-network/axelar-gmp-sdk-solidity/contracts/types/GasEstimationTypes.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @title GasEstimationType\\n * @notice This enum represents the gas estimation types for different chains.\\n */\\nenum GasEstimationType {\\n    Default,\\n    OptimismEcotone,\\n    OptimismBedrock,\\n    Arbitrum,\\n    Scroll\\n}\\n\\n/**\\n * @title GasInfo\\n * @notice This struct represents the gas pricing information for a specific chain.\\n * @dev Smaller uint types are used for efficient struct packing to save storage costs.\\n */\\nstruct GasInfo {\\n    /// @dev Custom gas pricing rule, such as L1 data fee on L2s\\n    uint64 gasEstimationType;\\n    /// @dev Scalar value needed for specific gas estimation types, expected to be less than 1e10\\n    uint64 l1FeeScalar;\\n    /// @dev Axelar base fee for cross-chain message approval on destination, in terms of source native gas token\\n    uint128 axelarBaseFee;\\n    /// @dev Gas price of destination chain, in terms of the source chain token, i.e dest_gas_price * dest_token_market_price / src_token_market_price\\n    uint128 relativeGasPrice;\\n    /// @dev Needed for specific gas estimation types. Blob base fee of destination chain, in terms of the source chain token, i.e dest_blob_base_fee * dest_token_market_price / src_token_market_price\\n    uint128 relativeBlobBaseFee;\\n    /// @dev Axelar express fee for express execution, in terms of source chain token\\n    uint128 expressFee;\\n}\\n\",\"keccak256\":\"0x7da6d20700698dfae8f8252c442e4bebd29030ffcdac4fbbe986f1ddbcb6365c\",\"license\":\"MIT\"},\"contracts/TicTacAvaxCross.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.24;\\n\\nimport {AxelarExecutable} from '@axelar-network/axelar-gmp-sdk-solidity/contracts/executable/AxelarExecutable.sol';\\nimport {IAxelarGateway} from '@axelar-network/axelar-gmp-sdk-solidity/contracts/interfaces/IAxelarGateway.sol';\\nimport {IAxelarGasService} from '@axelar-network/axelar-gmp-sdk-solidity/contracts/interfaces/IAxelarGasService.sol';\\n\\ncontract TicTacAvaxCross is AxelarExecutable {\\n\\tIAxelarGasService public immutable gasService;\\n\\tstring public message;\\n\\n\\taddress[2] public players;\\n\\tuint public currentPlayer;\\n\\tuint8[3][3] public board;\\n\\tuint public roundCount;\\n\\tuint public gameCount;\\n\\tbool public gameOver;\\n\\taddress public winner;\\n\\tuint public lastMoveTimestamp;\\n\\taddress public lastRoundWinner;\\n\\n\\tevent GameStarted(address player1, address player2);\\n\\tevent MoveMade(address player, uint8 row, uint8 col);\\n\\tevent GameWon(address winner);\\n\\tevent GameDraw();\\n\\tevent GameReset();\\n\\n\\tmodifier onlyPlayers() {\\n\\t\\trequire(\\n\\t\\t\\tmsg.sender == players[0] || msg.sender == players[1],\\n\\t\\t\\t'Not a player'\\n\\t\\t);\\n\\t\\t_;\\n\\t}\\n\\n\\tmodifier validMove(uint8 row, uint8 col) {\\n\\t\\trequire(!gameOver, 'Game over');\\n\\t\\trequire(row < 3 && col < 3, 'Invalid move');\\n\\t\\trequire(board[row][col] == 0, 'Cell already taken');\\n\\t\\t_;\\n\\t}\\n\\n\\tconstructor(\\n\\t\\taddress _gateway,\\n\\t\\taddress _gasService\\n\\t) AxelarExecutable(_gateway) {\\n\\t\\tgasService = IAxelarGasService(_gasService);\\n\\t}\\n\\n\\tfunction startGame(\\n\\t\\tstring calldata _destinationChain,\\n\\t\\tstring calldata _destinationAddress,\\n\\t\\taddress playerOne,\\n\\t\\taddress playerTwo\\n\\t) public payable {\\n\\t\\trequire(\\n\\t\\t\\tplayers[0] == address(0) && players[1] == address(0),\\n\\t\\t\\t'Game already started'\\n\\t\\t);\\n\\t\\trequire(\\n\\t\\t\\tplayerOne != address(0) && playerTwo != address(0),\\n\\t\\t\\t'Invalid player'\\n\\t\\t);\\n\\t\\trequire(playerOne != playerTwo, 'Players must be different');\\n\\n\\t\\t(string memory flag, address _playerOne, address _playerTwo) = _startGame(\\n\\t\\t\\tplayerOne,\\n\\t\\t\\tplayerTwo\\n\\t\\t);\\n\\n\\t\\tbytes memory payload = abi.encode(flag, _playerOne, _playerTwo);\\n\\n\\t\\tgasService.payNativeGasForContractCall{value: msg.value}(\\n\\t\\t\\taddress(this),\\n\\t\\t\\t_destinationChain,\\n\\t\\t\\t_destinationAddress,\\n\\t\\t\\tpayload,\\n\\t\\t\\tmsg.sender\\n\\t\\t);\\n\\n\\t\\tgateway.callContract(_destinationChain, _destinationAddress, payload);\\n\\t}\\n\\n\\tfunction makeMove(\\n\\t\\tstring calldata _destinationChain,\\n\\t\\tstring calldata _destinationAddress,\\n\\t\\tuint8 _row,\\n\\t\\tuint8 _col\\n\\t) public payable onlyPlayers validMove(_row, _col) {\\n\\t\\trequire(msg.sender == players[currentPlayer], 'Not your turn');\\n\\n\\t\\tstring memory flag = _makeMove(_row, _col);\\n\\n\\t\\tbytes memory payload = abi.encode(flag, _row, _col);\\n\\n\\t\\tgasService.payNativeGasForContractCall{value: msg.value}(\\n\\t\\t\\taddress(this),\\n\\t\\t\\t_destinationChain,\\n\\t\\t\\t_destinationAddress,\\n\\t\\t\\tpayload,\\n\\t\\t\\tmsg.sender\\n\\t\\t);\\n\\n\\t\\tgateway.callContract(_destinationChain, _destinationAddress, payload);\\n\\t}\\n\\n\\tfunction resetGame(\\n\\t\\tstring calldata _destinationChain,\\n\\t\\tstring calldata _destinationAddress\\n\\t) public payable {\\n\\t\\trequire(\\n\\t\\t\\tgameOver || block.timestamp > lastMoveTimestamp + 86400,\\n\\t\\t\\t'Game is not over yet or 24 hours have not passed'\\n\\t\\t);\\n\\n\\t\\tstring memory flag = _resetGame();\\n\\n\\t\\tbytes memory payload = abi.encode(flag);\\n\\n\\t\\tgasService.payNativeGasForContractCall{value: msg.value}(\\n\\t\\t\\taddress(this),\\n\\t\\t\\t_destinationChain,\\n\\t\\t\\t_destinationAddress,\\n\\t\\t\\tpayload,\\n\\t\\t\\tmsg.sender\\n\\t\\t);\\n\\n\\t\\tgateway.callContract(_destinationChain, _destinationAddress, payload);\\n\\t}\\n\\n\\t/// View functions\\n\\n\\tfunction getBoard() public view returns (uint8[3][3] memory) {\\n\\t\\treturn board;\\n\\t}\\n\\n\\t/// internal functions\\n\\n\\tfunction checkWin() internal view returns (bool) {\\n\\t\\tfor (uint8 i = 0; i < 3; i++) {\\n\\t\\t\\tif (\\n\\t\\t\\t\\t(board[i][0] == board[i][1] &&\\n\\t\\t\\t\\t\\tboard[i][1] == board[i][2] &&\\n\\t\\t\\t\\t\\tboard[i][0] != 0) ||\\n\\t\\t\\t\\t(board[0][i] == board[1][i] &&\\n\\t\\t\\t\\t\\tboard[1][i] == board[2][i] &&\\n\\t\\t\\t\\t\\tboard[0][i] != 0)\\n\\t\\t\\t) {\\n\\t\\t\\t\\treturn true;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\tif (\\n\\t\\t\\t(board[0][0] == board[1][1] &&\\n\\t\\t\\t\\tboard[1][1] == board[2][2] &&\\n\\t\\t\\t\\tboard[0][0] != 0) ||\\n\\t\\t\\t(board[0][2] == board[1][1] &&\\n\\t\\t\\t\\tboard[1][1] == board[2][0] &&\\n\\t\\t\\t\\tboard[0][2] != 0)\\n\\t\\t) {\\n\\t\\t\\treturn true;\\n\\t\\t}\\n\\t\\treturn false;\\n\\t}\\n\\n\\tfunction checkDraw() internal view returns (bool) {\\n\\t\\tfor (uint8 i = 0; i < 3; i++) {\\n\\t\\t\\tfor (uint8 j = 0; j < 3; j++) {\\n\\t\\t\\t\\tif (board[i][j] == 0) {\\n\\t\\t\\t\\t\\treturn false;\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\treturn !checkWin();\\n\\t}\\n\\n\\tfunction _execute(\\n\\t\\tstring calldata sourceChain,\\n\\t\\tstring calldata sourceAddress,\\n\\t\\tbytes calldata _payload\\n\\t) internal override {\\n\\t\\tstring memory flag = abi.decode(_payload, (string));\\n\\n\\t\\tif (\\n\\t\\t\\tkeccak256(abi.encodePacked(flag)) ==\\n\\t\\t\\tkeccak256(abi.encodePacked('startGame'))\\n\\t\\t) {\\n\\t\\t\\t(string memory failFlag, address playerOne, address playerTwo) = abi\\n\\t\\t\\t\\t.decode(_payload, (string, address, address));\\n\\n\\t\\t\\t_startGame(playerOne, playerTwo);\\n\\t\\t} else if (\\n\\t\\t\\tkeccak256(abi.encodePacked(flag)) ==\\n\\t\\t\\tkeccak256(abi.encodePacked('makeMove'))\\n\\t\\t) {\\n\\t\\t\\t(string memory failFlag, uint8 _row, uint8 _col) = abi.decode(\\n\\t\\t\\t\\t_payload,\\n\\t\\t\\t\\t(string, uint8, uint8)\\n\\t\\t\\t);\\n\\n\\t\\t\\t_makeMove(_row, _col);\\n\\t\\t} else if (\\n\\t\\t\\tkeccak256(abi.encodePacked(flag)) ==\\n\\t\\t\\tkeccak256(abi.encodePacked('resetGame'))\\n\\t\\t) {\\n\\t\\t\\t_resetGame();\\n\\t\\t}\\n\\t}\\n\\n\\t//// Private functions\\n\\n\\tfunction _startGame(\\n\\t\\taddress _playerOne,\\n\\t\\taddress _playerTwo\\n\\t) private returns (string memory, address, address) {\\n\\t\\tstring memory flag = 'startGame';\\n\\n\\t\\tplayers[0] = _playerOne;\\n\\t\\tplayers[1] = _playerTwo;\\n\\t\\tcurrentPlayer = 0;\\n\\t\\tgameOver = false;\\n\\t\\tlastMoveTimestamp = block.timestamp;\\n\\t\\tgameCount++;\\n\\n\\t\\temit GameStarted(_playerOne, _playerTwo);\\n\\n\\t\\treturn (flag, _playerOne, _playerTwo);\\n\\t}\\n\\n\\tfunction _makeMove(uint8 _row, uint8 _col) private returns (string memory) {\\n\\t\\tstring memory flag = 'makeMove';\\n\\n\\t\\tboard[_row][_col] = uint8(currentPlayer + 1);\\n\\t\\temit MoveMade(msg.sender, _row, _col);\\n\\n\\t\\tif (checkWin()) {\\n\\t\\t\\tgameOver = true;\\n\\t\\t\\twinner = msg.sender;\\n\\t\\t\\tlastRoundWinner = msg.sender;\\n\\t\\t\\temit GameWon(msg.sender);\\n\\t\\t} else if (checkDraw()) {\\n\\t\\t\\tgameOver = true;\\n\\t\\t\\temit GameDraw();\\n\\t\\t} else {\\n\\t\\t\\tcurrentPlayer = 1 - currentPlayer;\\n\\t\\t}\\n\\n\\t\\tlastMoveTimestamp = block.timestamp;\\n\\n\\t\\treturn flag;\\n\\t}\\n\\n\\tfunction _resetGame() private returns (string memory) {\\n\\t\\tstring memory flag = 'resetGame';\\n\\n\\t\\tfor (uint8 i = 0; i < 3; i++) {\\n\\t\\t\\tfor (uint8 j = 0; j < 3; j++) {\\n\\t\\t\\t\\tboard[i][j] = 0;\\n\\t\\t\\t}\\n\\t\\t}\\n\\n\\t\\tgameOver = false;\\n\\t\\tcurrentPlayer = 0;\\n\\t\\troundCount = 0;\\n\\t\\twinner = address(0);\\n\\t\\tlastMoveTimestamp = block.timestamp;\\n\\t\\tplayers[0] = address(0);\\n\\t\\tplayers[1] = address(0);\\n\\n\\t\\temit GameReset();\\n\\n\\t\\treturn flag;\\n\\t}\\n}\\n\",\"keccak256\":\"0xe606e9d4c00baeab9811b8ed4d2a55e7ec45300a8b329077080ae1cc25b01826\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x60c06040523480156200001157600080fd5b5060405162001faa38038062001faa833981016040819052620000349162000093565b816001600160a01b0381166200005d5760405163e6c4247b60e01b815260040160405180910390fd5b6001600160a01b039081166080521660a05250620000cb565b80516001600160a01b03811681146200008e57600080fd5b919050565b60008060408385031215620000a757600080fd5b620000b28362000076565b9150620000c26020840162000076565b90509250929050565b60805160a051611e8f6200011b600039600081816102380152818161065e0152610953015260008181610120015281816103aa015281816106e70152818161079601526109dc0152611e8f6000f3fe6080604052600436106101095760003560e01c80638086a92a11610095578063bdb337d111610064578063bdb337d1146102c8578063dfbf53ae146102f2578063e21f37ce14610317578063f71d96cb14610339578063feef55591461035957600080fd5b80638086a92a1461025a578063851baf7e1461028c5780638d5f00ae1461029f578063a2d4bd40146102b257600080fd5b80634404a438116100dc5780634404a438146101c75780634735b7fd146101dd57806349160658146101f05780634d1975b4146102105780636a22d8cc1461022657600080fd5b8063116191b61461010e578063127f0b3f1461015f5780631a98b2e0146101835780633264a34b146101a5575b600080fd5b34801561011a57600080fd5b506101427f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b0390911681526020015b60405180910390f35b34801561016b57600080fd5b5061017560075481565b604051908152602001610156565b34801561018f57600080fd5b506101a361019e3660046115ac565b610379565b005b3480156101b157600080fd5b506101ba61045c565b6040516101569190611686565b3480156101d357600080fd5b5061017560035481565b6101a36101eb366004611702565b6104e3565b3480156101fc57600080fd5b506101a361020b366004611797565b610765565b34801561021c57600080fd5b5061017560085481565b34801561023257600080fd5b506101427f000000000000000000000000000000000000000000000000000000000000000081565b34801561026657600080fd5b5061027a61027536600461183b565b61084d565b60405160ff9091168152602001610156565b6101a361029a36600461185d565b610889565b6101a36102ad3660046118df565b610a56565b3480156102be57600080fd5b50610175600a5481565b3480156102d457600080fd5b506009546102e29060ff1681565b6040519015158152602001610156565b3480156102fe57600080fd5b506009546101429061010090046001600160a01b031681565b34801561032357600080fd5b5061032c610c53565b60405161015691906119bf565b34801561034557600080fd5b506101426103543660046119d9565b610ce1565b34801561036557600080fd5b50600b54610142906001600160a01b031681565b6000858560405161038b9291906119f2565b604051908190038120631876eed960e01b825291506001600160a01b037f00000000000000000000000000000000000000000000000000000000000000001690631876eed9906103ef908e908e908e908e908e9089908d908d908d90600401611a2b565b6020604051808303816000875af115801561040e573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906104329190611a8a565b61044f57604051631403112d60e21b815260040160405180910390fd5b5050505050505050505050565b610464611518565b6040805160608101909152600460036000835b828210156104da576040805160608101918290529085840190600390826000855b825461010083900a900460ff16815260206001928301818104948501949093039092029101808411610498579050505050505081526020019060010190610477565b50505050905090565b6001546001600160a01b031615801561050557506002546001600160a01b0316155b61054d5760405162461bcd60e51b815260206004820152601460248201527311d85b5948185b1c9958591e481cdd185c9d195960621b60448201526064015b60405180910390fd5b6001600160a01b0382161580159061056d57506001600160a01b03811615155b6105aa5760405162461bcd60e51b815260206004820152600e60248201526d24b73b30b634b210383630bcb2b960911b6044820152606401610544565b806001600160a01b0316826001600160a01b03160361060b5760405162461bcd60e51b815260206004820152601960248201527f506c6179657273206d75737420626520646966666572656e74000000000000006044820152606401610544565b600080600061061a8585610d01565b925092509250600083838360405160200161063793929190611ac2565b60408051601f1981840301815290829052630c93e3bb60e01b825291506001600160a01b037f00000000000000000000000000000000000000000000000000000000000000001690630c93e3bb9034906106a19030908f908f908f908f908a903390600401611af5565b6000604051808303818588803b1580156106ba57600080fd5b505af11580156106ce573d6000803e3d6000fd5b5050604051631c92115f60e01b81526001600160a01b037f0000000000000000000000000000000000000000000000000000000000000000169350631c92115f925061072791508d908d908d908d908890600401611b57565b600060405180830381600087803b15801561074157600080fd5b505af1158015610755573d6000803e3d6000fd5b5050505050505050505050505050565b600082826040516107779291906119f2565b604051908190038120635f6970c360e01b825291506001600160a01b037f00000000000000000000000000000000000000000000000000000000000000001690635f6970c3906107d5908b908b908b908b908b908990600401611b9e565b6020604051808303816000875af11580156107f4573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906108189190611a8a565b61083557604051631403112d60e21b815260040160405180910390fd5b610843878787878787610dcb565b5050505050505050565b6004826003811061085d57600080fd5b01816003811061086c57600080fd5b602081049091015460ff601f9092166101000a9004169150829050565b60095460ff16806108a85750600a546108a59062015180611bf5565b42115b61090d5760405162461bcd60e51b815260206004820152603060248201527f47616d65206973206e6f74206f76657220796574206f7220323420686f75727360448201526f081a185d99481b9bdd081c185cdcd95960821b6064820152608401610544565b6000610917610f4e565b905060008160405160200161092c91906119bf565b60408051601f1981840301815290829052630c93e3bb60e01b825291506001600160a01b037f00000000000000000000000000000000000000000000000000000000000000001690630c93e3bb9034906109969030908b908b908b908b908a903390600401611af5565b6000604051808303818588803b1580156109af57600080fd5b505af11580156109c3573d6000803e3d6000fd5b5050604051631c92115f60e01b81526001600160a01b037f0000000000000000000000000000000000000000000000000000000000000000169350631c92115f9250610a1c915089908990899089908890600401611b57565b600060405180830381600087803b158015610a3657600080fd5b505af1158015610a4a573d6000803e3d6000fd5b50505050505050505050565b6001600001546001600160a01b0316331480610a7e575060018001546001600160a01b031633145b610ab95760405162461bcd60e51b815260206004820152600c60248201526b2737ba103090383630bcb2b960a11b6044820152606401610544565b6009548290829060ff1615610afc5760405162461bcd60e51b815260206004820152600960248201526823b0b6b29037bb32b960b91b6044820152606401610544565b60038260ff16108015610b12575060038160ff16105b610b4d5760405162461bcd60e51b815260206004820152600c60248201526b496e76616c6964206d6f766560a01b6044820152606401610544565b60048260ff1660038110610b6357610b63611aac565b018160ff1660038110610b7857610b78611aac565b602081049091015460ff601f9092166101000a90041615610bd05760405162461bcd60e51b815260206004820152601260248201527121b2b6361030b63932b0b23c903a30b5b2b760711b6044820152606401610544565b600160035460028110610be557610be5611aac565b01546001600160a01b03163314610c2e5760405162461bcd60e51b815260206004820152600d60248201526c2737ba103cb7bab9103a3ab93760991b6044820152606401610544565b6000610c3a858561105e565b9050600081868660405160200161063793929190611c08565b60008054610c6090611c35565b80601f0160208091040260200160405190810160405280929190818152602001828054610c8c90611c35565b8015610cd95780601f10610cae57610100808354040283529160200191610cd9565b820191906000526020600020905b815481529060010190602001808311610cbc57829003601f168201915b505050505081565b60018160028110610cf157600080fd5b01546001600160a01b0316905081565b60408051808201909152600980825268737461727447616d6560b81b6020830152600180546001600160a01b038087166001600160a01b031992831617909255600280549286169290911691909117905560006003819055815460ff191690915542600a5560088054606093839290919083610d7c83611c6f565b9091555050604080516001600160a01b038089168252871660208201527f55b25d7f9b5bf8ea934ba7079455d2ba00c68ea7e66c13695275f6b75b95e5f8910160405180910390a19592505050565b6000610dd982840184611d2b565b60405168737461727447616d6560b81b60208201529091506029016040516020818303038152906040528051906020012081604051602001610e1b9190611d68565b6040516020818303038152906040528051906020012003610e615760008080610e4685870187611d84565b925092509250610e568282610d01565b505050505050610f45565b604051676d616b654d6f766560c01b60208201526028016040516020818303038152906040528051906020012081604051602001610e9f9190611d68565b6040516020818303038152906040528051906020012003610ee35760008080610eca85870187611de8565b925092509250610eda828261105e565b50505050610f45565b60405168726573657447616d6560b81b60208201526029016040516020818303038152906040528051906020012081604051602001610f229190611d68565b6040516020818303038152906040528051906020012003610f4557610843610f4e565b50505050505050565b604080518082019091526009815268726573657447616d6560b81b602082015260609060005b60038160ff161015610ff25760005b60038160ff161015610fe957600060048360ff1660038110610fa757610fa7611aac565b018260ff1660038110610fbc57610fbc611aac565b602091828204019190066101000a81548160ff021916908360ff1602179055508080600101915050610f83565b50600101610f74565b50600980546000600381905560078190556001600160a81b031990911690915542600a55600180546001600160a01b03199081169091556002805490911690556040517fc6976b6410888b44c765590c8368eb4a60e0431d4ad683c8a53ea85a8479f22e9190a1919050565b6040805180820190915260088152676d616b654d6f766560c01b60208201526003546060919061108f906001611bf5565b60048560ff16600381106110a5576110a5611aac565b018460ff16600381106110ba576110ba611aac565b602091828204019190066101000a81548160ff021916908360ff1602179055507f10ac166a969b6ae9b140c9d6b88c6c4e565e4fc22f858bf92f1542535f0f161a33858560405161112c939291906001600160a01b0393909316835260ff918216602084015216604082015260600190565b60405180910390a161113c611212565b156111ab57600980543361010081026001600160a81b031990921691909117600117909155600b80546001600160a01b031916821790556040519081527f78b3193cf31372e77b1f3045481681f86e18e346de12ae7f1ecc322ff0adf1a49060200160405180910390a1611205565b6111b3611488565b156111f3576009805460ff191660011790556040517fa4c4401dace3a98737dc94c84d18bc94944a6d3d88571034bb81436527b1546c90600090a1611205565b600354611201906001611e46565b6003555b42600a5590505b92915050565b6000805b60038160ff1610156113e25760048160ff166003811061123857611238611aac565b0154610100900460ff9081169060049083166003811061125a5761125a611aac565b015460ff161480156112ac575060048160ff166003811061127d5761127d611aac565b015462010000900460ff908116906004908316600381106112a0576112a0611aac565b0154610100900460ff16145b80156112d1575060048160ff16600381106112c9576112c9611aac565b015460ff1615155b806113cd5750600560ff8216600381106112ed576112ed611aac565b602081049091015460ff601f9092166101000a90041660046000018260ff166003811061131c5761131c611aac565b602081049091015460ff601f9092166101000a9004161480156113975750600660ff82166003811061135057611350611aac565b602081049091015460ff601f9092166101000a90041660046001018260ff166003811061137f5761137f611aac565b602081049091015460ff601f9092166101000a900416145b80156113cd5750600460ff8216600381106113b4576113b4611aac565b602081049091015460ff601f9092166101000a90041615155b156113da57600191505090565b600101611216565b5060055460045460ff908116610100909204161480156114175750600654600554610100900460ff9081166201000090920416145b8015611427575060045460ff1615155b80611477575060055460045462010000900460ff908116610100909204161480156114615750600654600554610100900460ff9081169116145b8015611477575060045462010000900460ff1615155b156114825750600190565b50600090565b6000805b60038160ff1610156115095760005b60038160ff1610156115005760048260ff16600381106114bd576114bd611aac565b018160ff16600381106114d2576114d2611aac565b602081049091015460ff601f9092166101000a9004166000036114f85760009250505090565b60010161149b565b5060010161148c565b50611512611212565b15905090565b60405180606001604052806003905b61152f611545565b8152602001906001900390816115275790505090565b60405180606001604052806003906020820280368337509192915050565b60008083601f84011261157557600080fd5b50813567ffffffffffffffff81111561158d57600080fd5b6020830191508360208285010111156115a557600080fd5b9250929050565b60008060008060008060008060008060c08b8d0312156115cb57600080fd5b8a35995060208b013567ffffffffffffffff808211156115ea57600080fd5b6115f68e838f01611563565b909b50995060408d013591508082111561160f57600080fd5b61161b8e838f01611563565b909950975060608d013591508082111561163457600080fd5b6116408e838f01611563565b909750955060808d013591508082111561165957600080fd5b506116668d828e01611563565b9150809450508092505060a08b013590509295989b9194979a5092959850565b610120810181836000805b60038082106116a057506116e0565b835185845b838110156116c657825160ff168252602092830192909101906001016116a5565b505050606094909401935060209290920191600101611691565b5050505092915050565b6001600160a01b03811681146116ff57600080fd5b50565b6000806000806000806080878903121561171b57600080fd5b863567ffffffffffffffff8082111561173357600080fd5b61173f8a838b01611563565b9098509650602089013591508082111561175857600080fd5b5061176589828a01611563565b9095509350506040870135611779816116ea565b91506060870135611789816116ea565b809150509295509295509295565b60008060008060008060006080888a0312156117b257600080fd5b87359650602088013567ffffffffffffffff808211156117d157600080fd5b6117dd8b838c01611563565b909850965060408a01359150808211156117f657600080fd5b6118028b838c01611563565b909650945060608a013591508082111561181b57600080fd5b506118288a828b01611563565b989b979a50959850939692959293505050565b6000806040838503121561184e57600080fd5b50508035926020909101359150565b6000806000806040858703121561187357600080fd5b843567ffffffffffffffff8082111561188b57600080fd5b61189788838901611563565b909650945060208701359150808211156118b057600080fd5b506118bd87828801611563565b95989497509550505050565b803560ff811681146118da57600080fd5b919050565b600080600080600080608087890312156118f857600080fd5b863567ffffffffffffffff8082111561191057600080fd5b61191c8a838b01611563565b9098509650602089013591508082111561193557600080fd5b5061194289828a01611563565b90955093506119559050604088016118c9565b9150611963606088016118c9565b90509295509295509295565b60005b8381101561198a578181015183820152602001611972565b50506000910152565b600081518084526119ab81602086016020860161196f565b601f01601f19169290920160200192915050565b6020815260006119d26020830184611993565b9392505050565b6000602082840312156119eb57600080fd5b5035919050565b8183823760009101908152919050565b81835281816020850137506000828201602090810191909152601f909101601f19169091010190565b89815260c060208201526000611a4560c083018a8c611a02565b8281036040840152611a5881898b611a02565b90508660608401528281036080840152611a73818688611a02565b9150508260a08301529a9950505050505050505050565b600060208284031215611a9c57600080fd5b815180151581146119d257600080fd5b634e487b7160e01b600052603260045260246000fd5b606081526000611ad56060830186611993565b6001600160a01b0394851660208401529290931660409091015292915050565b600060018060a01b03808a16835260a06020840152611b1860a08401898b611a02565b8381036040850152611b2b81888a611a02565b90508381036060850152611b3f8187611993565b92505080841660808401525098975050505050505050565b606081526000611b6b606083018789611a02565b8281036020840152611b7e818688611a02565b90508281036040840152611b928185611993565b98975050505050505050565b868152608060208201526000611bb8608083018789611a02565b8281036040840152611bcb818688611a02565b915050826060830152979650505050505050565b634e487b7160e01b600052601160045260246000fd5b8082018082111561120c5761120c611bdf565b606081526000611c1b6060830186611993565b60ff94851660208401529290931660409091015292915050565b600181811c90821680611c4957607f821691505b602082108103611c6957634e487b7160e01b600052602260045260246000fd5b50919050565b600060018201611c8157611c81611bdf565b5060010190565b634e487b7160e01b600052604160045260246000fd5b600082601f830112611caf57600080fd5b813567ffffffffffffffff80821115611cca57611cca611c88565b604051601f8301601f19908116603f01168101908282118183101715611cf257611cf2611c88565b81604052838152866020858801011115611d0b57600080fd5b836020870160208301376000602085830101528094505050505092915050565b600060208284031215611d3d57600080fd5b813567ffffffffffffffff811115611d5457600080fd5b611d6084828501611c9e565b949350505050565b60008251611d7a81846020870161196f565b9190910192915050565b600080600060608486031215611d9957600080fd5b833567ffffffffffffffff811115611db057600080fd5b611dbc86828701611c9e565b9350506020840135611dcd816116ea565b91506040840135611ddd816116ea565b809150509250925092565b600080600060608486031215611dfd57600080fd5b833567ffffffffffffffff811115611e1457600080fd5b611e2086828701611c9e565b935050611e2f602085016118c9565b9150611e3d604085016118c9565b90509250925092565b8181038181111561120c5761120c611bdf56fea2646970667358221220a714369458a0cd5c910f92e8745d7fbbc0707e8f8e8c87c5252108fd969aeff664736f6c63430008180033",
+  "deployedBytecode": "0x6080604052600436106101095760003560e01c80638086a92a11610095578063bdb337d111610064578063bdb337d1146102c8578063dfbf53ae146102f2578063e21f37ce14610317578063f71d96cb14610339578063feef55591461035957600080fd5b80638086a92a1461025a578063851baf7e1461028c5780638d5f00ae1461029f578063a2d4bd40146102b257600080fd5b80634404a438116100dc5780634404a438146101c75780634735b7fd146101dd57806349160658146101f05780634d1975b4146102105780636a22d8cc1461022657600080fd5b8063116191b61461010e578063127f0b3f1461015f5780631a98b2e0146101835780633264a34b146101a5575b600080fd5b34801561011a57600080fd5b506101427f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b0390911681526020015b60405180910390f35b34801561016b57600080fd5b5061017560075481565b604051908152602001610156565b34801561018f57600080fd5b506101a361019e3660046115ac565b610379565b005b3480156101b157600080fd5b506101ba61045c565b6040516101569190611686565b3480156101d357600080fd5b5061017560035481565b6101a36101eb366004611702565b6104e3565b3480156101fc57600080fd5b506101a361020b366004611797565b610765565b34801561021c57600080fd5b5061017560085481565b34801561023257600080fd5b506101427f000000000000000000000000000000000000000000000000000000000000000081565b34801561026657600080fd5b5061027a61027536600461183b565b61084d565b60405160ff9091168152602001610156565b6101a361029a36600461185d565b610889565b6101a36102ad3660046118df565b610a56565b3480156102be57600080fd5b50610175600a5481565b3480156102d457600080fd5b506009546102e29060ff1681565b6040519015158152602001610156565b3480156102fe57600080fd5b506009546101429061010090046001600160a01b031681565b34801561032357600080fd5b5061032c610c53565b60405161015691906119bf565b34801561034557600080fd5b506101426103543660046119d9565b610ce1565b34801561036557600080fd5b50600b54610142906001600160a01b031681565b6000858560405161038b9291906119f2565b604051908190038120631876eed960e01b825291506001600160a01b037f00000000000000000000000000000000000000000000000000000000000000001690631876eed9906103ef908e908e908e908e908e9089908d908d908d90600401611a2b565b6020604051808303816000875af115801561040e573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906104329190611a8a565b61044f57604051631403112d60e21b815260040160405180910390fd5b5050505050505050505050565b610464611518565b6040805160608101909152600460036000835b828210156104da576040805160608101918290529085840190600390826000855b825461010083900a900460ff16815260206001928301818104948501949093039092029101808411610498579050505050505081526020019060010190610477565b50505050905090565b6001546001600160a01b031615801561050557506002546001600160a01b0316155b61054d5760405162461bcd60e51b815260206004820152601460248201527311d85b5948185b1c9958591e481cdd185c9d195960621b60448201526064015b60405180910390fd5b6001600160a01b0382161580159061056d57506001600160a01b03811615155b6105aa5760405162461bcd60e51b815260206004820152600e60248201526d24b73b30b634b210383630bcb2b960911b6044820152606401610544565b806001600160a01b0316826001600160a01b03160361060b5760405162461bcd60e51b815260206004820152601960248201527f506c6179657273206d75737420626520646966666572656e74000000000000006044820152606401610544565b600080600061061a8585610d01565b925092509250600083838360405160200161063793929190611ac2565b60408051601f1981840301815290829052630c93e3bb60e01b825291506001600160a01b037f00000000000000000000000000000000000000000000000000000000000000001690630c93e3bb9034906106a19030908f908f908f908f908a903390600401611af5565b6000604051808303818588803b1580156106ba57600080fd5b505af11580156106ce573d6000803e3d6000fd5b5050604051631c92115f60e01b81526001600160a01b037f0000000000000000000000000000000000000000000000000000000000000000169350631c92115f925061072791508d908d908d908d908890600401611b57565b600060405180830381600087803b15801561074157600080fd5b505af1158015610755573d6000803e3d6000fd5b5050505050505050505050505050565b600082826040516107779291906119f2565b604051908190038120635f6970c360e01b825291506001600160a01b037f00000000000000000000000000000000000000000000000000000000000000001690635f6970c3906107d5908b908b908b908b908b908990600401611b9e565b6020604051808303816000875af11580156107f4573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906108189190611a8a565b61083557604051631403112d60e21b815260040160405180910390fd5b610843878787878787610dcb565b5050505050505050565b6004826003811061085d57600080fd5b01816003811061086c57600080fd5b602081049091015460ff601f9092166101000a9004169150829050565b60095460ff16806108a85750600a546108a59062015180611bf5565b42115b61090d5760405162461bcd60e51b815260206004820152603060248201527f47616d65206973206e6f74206f76657220796574206f7220323420686f75727360448201526f081a185d99481b9bdd081c185cdcd95960821b6064820152608401610544565b6000610917610f4e565b905060008160405160200161092c91906119bf565b60408051601f1981840301815290829052630c93e3bb60e01b825291506001600160a01b037f00000000000000000000000000000000000000000000000000000000000000001690630c93e3bb9034906109969030908b908b908b908b908a903390600401611af5565b6000604051808303818588803b1580156109af57600080fd5b505af11580156109c3573d6000803e3d6000fd5b5050604051631c92115f60e01b81526001600160a01b037f0000000000000000000000000000000000000000000000000000000000000000169350631c92115f9250610a1c915089908990899089908890600401611b57565b600060405180830381600087803b158015610a3657600080fd5b505af1158015610a4a573d6000803e3d6000fd5b50505050505050505050565b6001600001546001600160a01b0316331480610a7e575060018001546001600160a01b031633145b610ab95760405162461bcd60e51b815260206004820152600c60248201526b2737ba103090383630bcb2b960a11b6044820152606401610544565b6009548290829060ff1615610afc5760405162461bcd60e51b815260206004820152600960248201526823b0b6b29037bb32b960b91b6044820152606401610544565b60038260ff16108015610b12575060038160ff16105b610b4d5760405162461bcd60e51b815260206004820152600c60248201526b496e76616c6964206d6f766560a01b6044820152606401610544565b60048260ff1660038110610b6357610b63611aac565b018160ff1660038110610b7857610b78611aac565b602081049091015460ff601f9092166101000a90041615610bd05760405162461bcd60e51b815260206004820152601260248201527121b2b6361030b63932b0b23c903a30b5b2b760711b6044820152606401610544565b600160035460028110610be557610be5611aac565b01546001600160a01b03163314610c2e5760405162461bcd60e51b815260206004820152600d60248201526c2737ba103cb7bab9103a3ab93760991b6044820152606401610544565b6000610c3a858561105e565b9050600081868660405160200161063793929190611c08565b60008054610c6090611c35565b80601f0160208091040260200160405190810160405280929190818152602001828054610c8c90611c35565b8015610cd95780601f10610cae57610100808354040283529160200191610cd9565b820191906000526020600020905b815481529060010190602001808311610cbc57829003601f168201915b505050505081565b60018160028110610cf157600080fd5b01546001600160a01b0316905081565b60408051808201909152600980825268737461727447616d6560b81b6020830152600180546001600160a01b038087166001600160a01b031992831617909255600280549286169290911691909117905560006003819055815460ff191690915542600a5560088054606093839290919083610d7c83611c6f565b9091555050604080516001600160a01b038089168252871660208201527f55b25d7f9b5bf8ea934ba7079455d2ba00c68ea7e66c13695275f6b75b95e5f8910160405180910390a19592505050565b6000610dd982840184611d2b565b60405168737461727447616d6560b81b60208201529091506029016040516020818303038152906040528051906020012081604051602001610e1b9190611d68565b6040516020818303038152906040528051906020012003610e615760008080610e4685870187611d84565b925092509250610e568282610d01565b505050505050610f45565b604051676d616b654d6f766560c01b60208201526028016040516020818303038152906040528051906020012081604051602001610e9f9190611d68565b6040516020818303038152906040528051906020012003610ee35760008080610eca85870187611de8565b925092509250610eda828261105e565b50505050610f45565b60405168726573657447616d6560b81b60208201526029016040516020818303038152906040528051906020012081604051602001610f229190611d68565b6040516020818303038152906040528051906020012003610f4557610843610f4e565b50505050505050565b604080518082019091526009815268726573657447616d6560b81b602082015260609060005b60038160ff161015610ff25760005b60038160ff161015610fe957600060048360ff1660038110610fa757610fa7611aac565b018260ff1660038110610fbc57610fbc611aac565b602091828204019190066101000a81548160ff021916908360ff1602179055508080600101915050610f83565b50600101610f74565b50600980546000600381905560078190556001600160a81b031990911690915542600a55600180546001600160a01b03199081169091556002805490911690556040517fc6976b6410888b44c765590c8368eb4a60e0431d4ad683c8a53ea85a8479f22e9190a1919050565b6040805180820190915260088152676d616b654d6f766560c01b60208201526003546060919061108f906001611bf5565b60048560ff16600381106110a5576110a5611aac565b018460ff16600381106110ba576110ba611aac565b602091828204019190066101000a81548160ff021916908360ff1602179055507f10ac166a969b6ae9b140c9d6b88c6c4e565e4fc22f858bf92f1542535f0f161a33858560405161112c939291906001600160a01b0393909316835260ff918216602084015216604082015260600190565b60405180910390a161113c611212565b156111ab57600980543361010081026001600160a81b031990921691909117600117909155600b80546001600160a01b031916821790556040519081527f78b3193cf31372e77b1f3045481681f86e18e346de12ae7f1ecc322ff0adf1a49060200160405180910390a1611205565b6111b3611488565b156111f3576009805460ff191660011790556040517fa4c4401dace3a98737dc94c84d18bc94944a6d3d88571034bb81436527b1546c90600090a1611205565b600354611201906001611e46565b6003555b42600a5590505b92915050565b6000805b60038160ff1610156113e25760048160ff166003811061123857611238611aac565b0154610100900460ff9081169060049083166003811061125a5761125a611aac565b015460ff161480156112ac575060048160ff166003811061127d5761127d611aac565b015462010000900460ff908116906004908316600381106112a0576112a0611aac565b0154610100900460ff16145b80156112d1575060048160ff16600381106112c9576112c9611aac565b015460ff1615155b806113cd5750600560ff8216600381106112ed576112ed611aac565b602081049091015460ff601f9092166101000a90041660046000018260ff166003811061131c5761131c611aac565b602081049091015460ff601f9092166101000a9004161480156113975750600660ff82166003811061135057611350611aac565b602081049091015460ff601f9092166101000a90041660046001018260ff166003811061137f5761137f611aac565b602081049091015460ff601f9092166101000a900416145b80156113cd5750600460ff8216600381106113b4576113b4611aac565b602081049091015460ff601f9092166101000a90041615155b156113da57600191505090565b600101611216565b5060055460045460ff908116610100909204161480156114175750600654600554610100900460ff9081166201000090920416145b8015611427575060045460ff1615155b80611477575060055460045462010000900460ff908116610100909204161480156114615750600654600554610100900460ff9081169116145b8015611477575060045462010000900460ff1615155b156114825750600190565b50600090565b6000805b60038160ff1610156115095760005b60038160ff1610156115005760048260ff16600381106114bd576114bd611aac565b018160ff16600381106114d2576114d2611aac565b602081049091015460ff601f9092166101000a9004166000036114f85760009250505090565b60010161149b565b5060010161148c565b50611512611212565b15905090565b60405180606001604052806003905b61152f611545565b8152602001906001900390816115275790505090565b60405180606001604052806003906020820280368337509192915050565b60008083601f84011261157557600080fd5b50813567ffffffffffffffff81111561158d57600080fd5b6020830191508360208285010111156115a557600080fd5b9250929050565b60008060008060008060008060008060c08b8d0312156115cb57600080fd5b8a35995060208b013567ffffffffffffffff808211156115ea57600080fd5b6115f68e838f01611563565b909b50995060408d013591508082111561160f57600080fd5b61161b8e838f01611563565b909950975060608d013591508082111561163457600080fd5b6116408e838f01611563565b909750955060808d013591508082111561165957600080fd5b506116668d828e01611563565b9150809450508092505060a08b013590509295989b9194979a5092959850565b610120810181836000805b60038082106116a057506116e0565b835185845b838110156116c657825160ff168252602092830192909101906001016116a5565b505050606094909401935060209290920191600101611691565b5050505092915050565b6001600160a01b03811681146116ff57600080fd5b50565b6000806000806000806080878903121561171b57600080fd5b863567ffffffffffffffff8082111561173357600080fd5b61173f8a838b01611563565b9098509650602089013591508082111561175857600080fd5b5061176589828a01611563565b9095509350506040870135611779816116ea565b91506060870135611789816116ea565b809150509295509295509295565b60008060008060008060006080888a0312156117b257600080fd5b87359650602088013567ffffffffffffffff808211156117d157600080fd5b6117dd8b838c01611563565b909850965060408a01359150808211156117f657600080fd5b6118028b838c01611563565b909650945060608a013591508082111561181b57600080fd5b506118288a828b01611563565b989b979a50959850939692959293505050565b6000806040838503121561184e57600080fd5b50508035926020909101359150565b6000806000806040858703121561187357600080fd5b843567ffffffffffffffff8082111561188b57600080fd5b61189788838901611563565b909650945060208701359150808211156118b057600080fd5b506118bd87828801611563565b95989497509550505050565b803560ff811681146118da57600080fd5b919050565b600080600080600080608087890312156118f857600080fd5b863567ffffffffffffffff8082111561191057600080fd5b61191c8a838b01611563565b9098509650602089013591508082111561193557600080fd5b5061194289828a01611563565b90955093506119559050604088016118c9565b9150611963606088016118c9565b90509295509295509295565b60005b8381101561198a578181015183820152602001611972565b50506000910152565b600081518084526119ab81602086016020860161196f565b601f01601f19169290920160200192915050565b6020815260006119d26020830184611993565b9392505050565b6000602082840312156119eb57600080fd5b5035919050565b8183823760009101908152919050565b81835281816020850137506000828201602090810191909152601f909101601f19169091010190565b89815260c060208201526000611a4560c083018a8c611a02565b8281036040840152611a5881898b611a02565b90508660608401528281036080840152611a73818688611a02565b9150508260a08301529a9950505050505050505050565b600060208284031215611a9c57600080fd5b815180151581146119d257600080fd5b634e487b7160e01b600052603260045260246000fd5b606081526000611ad56060830186611993565b6001600160a01b0394851660208401529290931660409091015292915050565b600060018060a01b03808a16835260a06020840152611b1860a08401898b611a02565b8381036040850152611b2b81888a611a02565b90508381036060850152611b3f8187611993565b92505080841660808401525098975050505050505050565b606081526000611b6b606083018789611a02565b8281036020840152611b7e818688611a02565b90508281036040840152611b928185611993565b98975050505050505050565b868152608060208201526000611bb8608083018789611a02565b8281036040840152611bcb818688611a02565b915050826060830152979650505050505050565b634e487b7160e01b600052601160045260246000fd5b8082018082111561120c5761120c611bdf565b606081526000611c1b6060830186611993565b60ff94851660208401529290931660409091015292915050565b600181811c90821680611c4957607f821691505b602082108103611c6957634e487b7160e01b600052602260045260246000fd5b50919050565b600060018201611c8157611c81611bdf565b5060010190565b634e487b7160e01b600052604160045260246000fd5b600082601f830112611caf57600080fd5b813567ffffffffffffffff80821115611cca57611cca611c88565b604051601f8301601f19908116603f01168101908282118183101715611cf257611cf2611c88565b81604052838152866020858801011115611d0b57600080fd5b836020870160208301376000602085830101528094505050505092915050565b600060208284031215611d3d57600080fd5b813567ffffffffffffffff811115611d5457600080fd5b611d6084828501611c9e565b949350505050565b60008251611d7a81846020870161196f565b9190910192915050565b600080600060608486031215611d9957600080fd5b833567ffffffffffffffff811115611db057600080fd5b611dbc86828701611c9e565b9350506020840135611dcd816116ea565b91506040840135611ddd816116ea565b809150509250925092565b600080600060608486031215611dfd57600080fd5b833567ffffffffffffffff811115611e1457600080fd5b611e2086828701611c9e565b935050611e2f602085016118c9565b9150611e3d604085016118c9565b90509250925092565b8181038181111561120c5761120c611bdf56fea2646970667358221220a714369458a0cd5c910f92e8745d7fbbc0707e8f8e8c87c5252108fd969aeff664736f6c63430008180033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "getBoard()": {
+        "notice": "View functions"
+      }
+    },
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 1829,
+        "contract": "contracts/TicTacAvaxCross.sol:TicTacAvaxCross",
+        "label": "message",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_string_storage"
+      },
+      {
+        "astId": 1833,
+        "contract": "contracts/TicTacAvaxCross.sol:TicTacAvaxCross",
+        "label": "players",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_array(t_address)2_storage"
+      },
+      {
+        "astId": 1835,
+        "contract": "contracts/TicTacAvaxCross.sol:TicTacAvaxCross",
+        "label": "currentPlayer",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 1841,
+        "contract": "contracts/TicTacAvaxCross.sol:TicTacAvaxCross",
+        "label": "board",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_array(t_array(t_uint8)3_storage)3_storage"
+      },
+      {
+        "astId": 1843,
+        "contract": "contracts/TicTacAvaxCross.sol:TicTacAvaxCross",
+        "label": "roundCount",
+        "offset": 0,
+        "slot": "7",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 1845,
+        "contract": "contracts/TicTacAvaxCross.sol:TicTacAvaxCross",
+        "label": "gameCount",
+        "offset": 0,
+        "slot": "8",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 1847,
+        "contract": "contracts/TicTacAvaxCross.sol:TicTacAvaxCross",
+        "label": "gameOver",
+        "offset": 0,
+        "slot": "9",
+        "type": "t_bool"
+      },
+      {
+        "astId": 1849,
+        "contract": "contracts/TicTacAvaxCross.sol:TicTacAvaxCross",
+        "label": "winner",
+        "offset": 1,
+        "slot": "9",
+        "type": "t_address"
+      },
+      {
+        "astId": 1851,
+        "contract": "contracts/TicTacAvaxCross.sol:TicTacAvaxCross",
+        "label": "lastMoveTimestamp",
+        "offset": 0,
+        "slot": "10",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 1853,
+        "contract": "contracts/TicTacAvaxCross.sol:TicTacAvaxCross",
+        "label": "lastRoundWinner",
+        "offset": 0,
+        "slot": "11",
+        "type": "t_address"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_address)2_storage": {
+        "base": "t_address",
+        "encoding": "inplace",
+        "label": "address[2]",
+        "numberOfBytes": "64"
+      },
+      "t_array(t_array(t_uint8)3_storage)3_storage": {
+        "base": "t_array(t_uint8)3_storage",
+        "encoding": "inplace",
+        "label": "uint8[3][3]",
+        "numberOfBytes": "96"
+      },
+      "t_array(t_uint8)3_storage": {
+        "base": "t_uint8",
+        "encoding": "inplace",
+        "label": "uint8[3]",
+        "numberOfBytes": "32"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint8": {
+        "encoding": "inplace",
+        "label": "uint8",
+        "numberOfBytes": "1"
+      }
+    }
+  }
+}

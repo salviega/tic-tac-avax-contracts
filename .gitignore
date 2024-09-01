@@ -12,7 +12,7 @@ node_modules
 # Deployments files
 # ==============================================
 .openzeppelin
-deployments
+# deployments
 
 # ==============================================
 # Environment Variables
@@ -25,7 +25,7 @@ deployments
 # ==============================================
 artifacts
 cache
-gas-report.txt
+# gas-report.txt
 
 # ==============================================
 # Hardhat Ignition default folder for deployments against a local node
@@ -44,7 +44,7 @@ yarn.lock
 # solidity-coverage files
 # ==============================================
 coverage
-coverage.json
+# coverage.json
 
 # ==============================================
 # TypeChain files
